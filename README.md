@@ -12,6 +12,10 @@ If you are trying to install the plugin and do **not** care about the source rep
 - [Download Codex bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-codex-latest.tar.gz)
 - [Download OpenCode bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-opencode-latest.tar.gz)
 - [Download Claude installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-claude-code.sh)
+- [Download Cursor installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-cursor.sh)
+- [Download Codex installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-codex.sh)
+- [Download OpenCode installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-opencode.sh)
+- [Download core-four installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-all.sh)
 
 This repository's file list is the **source project**. The installable bundles live under **Releases**, not in the root file tree.
 
@@ -30,6 +34,30 @@ That script:
 3. installs the `pluxx` plugin into your Claude Code user scope
 
 If Claude is already open, run `/reload-plugins` after install.
+
+### Fastest Cursor Install
+
+```bash
+curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-cursor.sh | bash
+```
+
+### Fastest Codex Install
+
+```bash
+curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-codex.sh | bash
+```
+
+### Fastest OpenCode Install
+
+```bash
+curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-opencode.sh | bash
+```
+
+### Install Across The Core Four
+
+```bash
+curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-all.sh | bash
+```
 
 ## Source vs Download
 

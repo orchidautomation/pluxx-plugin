@@ -12,7 +12,12 @@ mkdir -p release
 rm -f release/*
 
 cp scripts/install-claude-code.sh release/install-claude-code.sh
+cp scripts/install-cursor.sh release/install-cursor.sh
+cp scripts/install-codex.sh release/install-codex.sh
+cp scripts/install-opencode.sh release/install-opencode.sh
+cp scripts/install-all.sh release/install-all.sh
 chmod +x release/install-claude-code.sh
+chmod +x release/install-cursor.sh release/install-codex.sh release/install-opencode.sh release/install-all.sh
 
 for platform in claude-code cursor codex opencode; do
   if [[ ! -d "dist/$platform" ]]; then
