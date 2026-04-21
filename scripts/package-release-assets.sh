@@ -11,6 +11,9 @@ fi
 mkdir -p release
 rm -f release/*
 
+cp scripts/install-claude-code.sh release/install-claude-code.sh
+chmod +x release/install-claude-code.sh
+
 for platform in claude-code cursor codex opencode; do
   if [[ ! -d "dist/$platform" ]]; then
     echo "Missing built platform bundle: dist/$platform" >&2

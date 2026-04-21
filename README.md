@@ -11,8 +11,25 @@ If you are trying to install the plugin and do **not** care about the source rep
 - [Download Cursor bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-cursor-latest.tar.gz)
 - [Download Codex bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-codex-latest.tar.gz)
 - [Download OpenCode bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-opencode-latest.tar.gz)
+- [Download Claude installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-claude-code.sh)
 
 This repository's file list is the **source project**. The installable bundles live under **Releases**, not in the root file tree.
+
+### Fastest Claude Code Install
+
+If you want the plugin in Claude Code user scope right now:
+
+```bash
+curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-claude-code.sh | bash
+```
+
+That script:
+
+1. downloads the latest Claude bundle
+2. creates a local Claude marketplace
+3. installs the `pluxx` plugin into your Claude Code user scope
+
+If Claude is already open, run `/reload-plugins` after install.
 
 ## Source vs Download
 
