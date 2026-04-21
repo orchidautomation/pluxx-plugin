@@ -12,6 +12,19 @@ This repository is the canonical Pluxx source project for the Pluxx plugin itsel
 
 Generated host bundles are build artifacts and are not checked into this repository.
 
+## Where The Built Bundles Live
+
+This repository is source-first, so `dist/` is not committed.
+
+Built platform bundles are published as release assets:
+
+- `pluxx-plugin-claude-code-<version>.tar.gz`
+- `pluxx-plugin-cursor-<version>.tar.gz`
+- `pluxx-plugin-codex-<version>.tar.gz`
+- `pluxx-plugin-opencode-<version>.tar.gz`
+
+Download them from the repository's Releases page after each tagged release.
+
 ## What This Plugin Does
 
 The Pluxx plugin gives host-native skills and command entrypoints for the main Pluxx workflows:
@@ -25,26 +38,37 @@ The Pluxx plugin gives host-native skills and command entrypoints for the main P
 - build and install host bundles
 - sync an MCP-derived scaffold
 
-## Build
+## Build Locally
 
-Build this plugin with the Pluxx CLI:
+Build this plugin with a local Pluxx checkout:
 
 ```bash
-pluxx build
+PLUXX_REPO_DIR=../pluxx ./scripts/build-with-pluxx-checkout.sh
+```
+
+Or invoke the CLI directly:
+
+```bash
+bun ../pluxx/bin/pluxx.js build
 ```
 
 Or target a subset of hosts:
 
 ```bash
-pluxx build --target claude-code cursor codex opencode
+bun ../pluxx/bin/pluxx.js build --target claude-code cursor codex opencode
 ```
+
+## CI And Release Automation
+
+- `.github/workflows/ci.yml` validates the source project and uploads built artifacts on pushes and pull requests
+- `.github/workflows/release.yml` builds the core-four bundles and attaches them to GitHub Releases on tags
 
 ## Local Proof
 
 For the strongest deterministic local proof:
 
 ```bash
-pluxx test --install --target claude-code cursor codex opencode
+bun ../pluxx/bin/pluxx.js test --install --target claude-code cursor codex opencode
 ```
 
 ## Notes

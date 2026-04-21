@@ -1,4 +1,4 @@
-import { definePlugin } from '../../src/index'
+import { definePlugin } from 'pluxx'
 
 export default definePlugin({
   name: 'pluxx',
@@ -8,7 +8,7 @@ export default definePlugin({
     name: 'Orchid Automation',
     url: 'https://github.com/orchidautomation',
   },
-  repository: 'https://github.com/orchidautomation/pluxx',
+  repository: 'https://github.com/orchidautomation/pluxx-plugin',
   license: 'MIT',
   keywords: ['mcp', 'plugins', 'claude-code', 'cursor', 'codex', 'opencode', 'pluxx'],
 
