@@ -18,6 +18,7 @@ for platform in claude-code cursor codex opencode; do
   fi
 
   tar -czf "release/pluxx-plugin-${platform}-${VERSION}.tar.gz" -C dist "$platform"
+  tar -czf "release/pluxx-plugin-${platform}-latest.tar.gz" -C dist "$platform"
 done
 
 shasum -a 256 release/*.tar.gz > release/SHA256SUMS.txt

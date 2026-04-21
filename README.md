@@ -2,6 +2,23 @@
 
 Official first-party Pluxx plugin source for Claude Code, Cursor, Codex, and OpenCode.
 
+## Get The Plugin
+
+If you are trying to install the plugin and do **not** care about the source repo, use the release assets directly:
+
+- [Latest release page](https://github.com/orchidautomation/pluxx-plugin/releases/latest)
+- [Download Claude Code bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-claude-code-latest.tar.gz)
+- [Download Cursor bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-cursor-latest.tar.gz)
+- [Download Codex bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-codex-latest.tar.gz)
+- [Download OpenCode bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-opencode-latest.tar.gz)
+
+This repository's file list is the **source project**. The installable bundles live under **Releases**, not in the root file tree.
+
+## Source vs Download
+
+- Want to **use/install** the plugin: go to [Releases](https://github.com/orchidautomation/pluxx-plugin/releases/latest)
+- Want to **edit/maintain** the plugin: use this repository source directly
+
 This repository is the canonical Pluxx source project for the Pluxx plugin itself. It contains the maintained cross-host source files:
 
 - `pluxx.config.ts`
@@ -22,6 +39,10 @@ Built platform bundles are published as release assets:
 - `pluxx-plugin-cursor-<version>.tar.gz`
 - `pluxx-plugin-codex-<version>.tar.gz`
 - `pluxx-plugin-opencode-<version>.tar.gz`
+- `pluxx-plugin-claude-code-latest.tar.gz`
+- `pluxx-plugin-cursor-latest.tar.gz`
+- `pluxx-plugin-codex-latest.tar.gz`
+- `pluxx-plugin-opencode-latest.tar.gz`
 
 Download them from the repository's Releases page after each tagged release.
 
