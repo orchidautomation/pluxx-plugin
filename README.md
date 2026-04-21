@@ -122,13 +122,15 @@ PLUXX_REPO_DIR=../pluxx ./scripts/build-with-pluxx-checkout.sh
 Or invoke the CLI directly:
 
 ```bash
-bun ../pluxx/bin/pluxx.js build
+bun --cwd ../pluxx run build
+node ../pluxx/bin/pluxx.js build
 ```
 
 Or target a subset of hosts:
 
 ```bash
-bun ../pluxx/bin/pluxx.js build --target claude-code cursor codex opencode
+bun --cwd ../pluxx run build
+node ../pluxx/bin/pluxx.js build --target claude-code cursor codex opencode
 ```
 
 ## CI And Release Automation
@@ -141,7 +143,8 @@ bun ../pluxx/bin/pluxx.js build --target claude-code cursor codex opencode
 For the strongest deterministic local proof:
 
 ```bash
-bun ../pluxx/bin/pluxx.js test --install --target claude-code cursor codex opencode
+bun --cwd ../pluxx run build
+node ../pluxx/bin/pluxx.js test --install --target claude-code cursor codex opencode
 ```
 
 ## Notes

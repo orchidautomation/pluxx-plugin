@@ -10,7 +10,12 @@ if [[ ! -f "$PLUXX_BIN" ]]; then
   exit 1
 fi
 
-bun "$PLUXX_BIN" doctor
-bun "$PLUXX_BIN" lint
-bun "$PLUXX_BIN" test --target claude-code cursor codex opencode
-bun "$PLUXX_BIN" build
+(
+  cd "$PLUXX_REPO_DIR"
+  bun run build
+)
+
+node "$PLUXX_BIN" doctor
+node "$PLUXX_BIN" lint
+node "$PLUXX_BIN" test --target claude-code cursor codex opencode
+node "$PLUXX_BIN" build

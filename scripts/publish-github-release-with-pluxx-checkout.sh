@@ -18,4 +18,9 @@ fi
 
 shift
 
-bun "$PLUXX_BIN" publish --github-release --version "$VERSION" "$@"
+(
+  cd "$PLUXX_REPO_DIR"
+  bun run build
+)
+
+node "$PLUXX_BIN" publish --github-release --version "$VERSION" "$@"
