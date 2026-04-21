@@ -10,25 +10,26 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PLUXX_REPO_DIR: ${{ runner.temp }}/pluxx-cli
 
     steps:
       - name: Checkout plugin repo
         uses: actions/checkout@v4
-
-      - name: Checkout Pluxx CLI repo
-        uses: actions/checkout@v4
-        with:
-          repository: orchidautomation/pluxx
-          ref: main
-          path: pluxx-cli
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.2.17
 
+      - name: Clone Pluxx CLI repo
+        run: git clone --depth 1 https://github.com/orchidautomation/pluxx.git "$PLUXX_REPO_DIR"
+
       - name: Build and validate plugin
         run: ./scripts/build-with-pluxx-checkout.sh
+
+      - name: Validate GitHub release publish plan
+        run: bun "$PLUXX_REPO_DIR/bin/pluxx.js" publish --github-release --dry-run
 
       - name: Upload raw dist artifact
         if: success()
@@ -36,16 +37,4 @@ jobs:
         with:
           name: pluxx-plugin-dist-${{ github.sha }}
           path: dist/
-          if-no-files-found: error
-
-      - name: Package release tarballs
-        if: success()
-        run: ./scripts/package-release-assets.sh ${{ github.sha }}
-
-      - name: Upload release-style artifacts
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: pluxx-plugin-release-assets-${{ github.sha }}
-          path: release/
           if-no-files-found: error

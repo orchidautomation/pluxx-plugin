@@ -7,10 +7,10 @@ Official first-party Pluxx plugin source for Claude Code, Cursor, Codex, and Ope
 If you are trying to install the plugin and do **not** care about the source repo, use the release assets directly:
 
 - [Latest release page](https://github.com/orchidautomation/pluxx-plugin/releases/latest)
-- [Download Claude Code bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-claude-code-latest.tar.gz)
-- [Download Cursor bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-cursor-latest.tar.gz)
-- [Download Codex bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-codex-latest.tar.gz)
-- [Download OpenCode bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-plugin-opencode-latest.tar.gz)
+- [Download Claude Code bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-claude-code-latest.tar.gz)
+- [Download Cursor bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-cursor-latest.tar.gz)
+- [Download Codex bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-codex-latest.tar.gz)
+- [Download OpenCode bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-opencode-latest.tar.gz)
 - [Download Claude installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-claude-code.sh)
 - [Download Cursor installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-cursor.sh)
 - [Download Codex installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-codex.sh)
@@ -80,14 +80,21 @@ This repository is source-first, so `dist/` is not committed.
 
 Built platform bundles are published as release assets:
 
-- `pluxx-plugin-claude-code-<version>.tar.gz`
-- `pluxx-plugin-cursor-<version>.tar.gz`
-- `pluxx-plugin-codex-<version>.tar.gz`
-- `pluxx-plugin-opencode-<version>.tar.gz`
-- `pluxx-plugin-claude-code-latest.tar.gz`
-- `pluxx-plugin-cursor-latest.tar.gz`
-- `pluxx-plugin-codex-latest.tar.gz`
-- `pluxx-plugin-opencode-latest.tar.gz`
+- `pluxx-claude-code-v<version>.tar.gz`
+- `pluxx-cursor-v<version>.tar.gz`
+- `pluxx-codex-v<version>.tar.gz`
+- `pluxx-opencode-v<version>.tar.gz`
+- `pluxx-claude-code-latest.tar.gz`
+- `pluxx-cursor-latest.tar.gz`
+- `pluxx-codex-latest.tar.gz`
+- `pluxx-opencode-latest.tar.gz`
+- `install-claude-code.sh`
+- `install-cursor.sh`
+- `install-codex.sh`
+- `install-opencode.sh`
+- `install-all.sh`
+- `release-manifest.json`
+- `SHA256SUMS.txt`
 
 Download them from the repository's Releases page after each tagged release.
 
@@ -126,8 +133,8 @@ bun ../pluxx/bin/pluxx.js build --target claude-code cursor codex opencode
 
 ## CI And Release Automation
 
-- `.github/workflows/ci.yml` validates the source project and uploads built artifacts on pushes and pull requests
-- `.github/workflows/release.yml` builds the core-four bundles and attaches them to GitHub Releases on tags
+- `.github/workflows/ci.yml` validates the source project, uploads `dist/`, and dry-runs the core `pluxx publish --github-release` path
+- `.github/workflows/release.yml` builds the core-four bundles and calls core `pluxx publish --github-release` on tags
 
 ## Local Proof
 

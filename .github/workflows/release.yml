@@ -11,36 +11,24 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      PLUXX_REPO_DIR: ${{ runner.temp }}/pluxx-cli
+      GH_TOKEN: ${{ github.token }}
 
     steps:
       - name: Checkout plugin repo
         uses: actions/checkout@v4
-
-      - name: Checkout Pluxx CLI repo
-        uses: actions/checkout@v4
-        with:
-          repository: orchidautomation/pluxx
-          ref: main
-          path: pluxx-cli
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.2.17
 
+      - name: Clone Pluxx CLI repo
+        run: git clone --depth 1 https://github.com/orchidautomation/pluxx.git "$PLUXX_REPO_DIR"
+
       - name: Build and validate plugin
         run: ./scripts/build-with-pluxx-checkout.sh
 
-      - name: Package release assets
-        run: ./scripts/package-release-assets.sh ${{ github.ref_name }}
-
-      - name: Publish GitHub release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            release/*
-          generate_release_notes: true
-          body: |
-            Prebuilt Pluxx plugin bundles for Claude Code, Cursor, Codex, and OpenCode.
-
-            Source lives in this repository. Download the platform bundle that matches your host from the release assets.
+      - name: Publish GitHub release via core Pluxx publish
+        run: ./scripts/publish-github-release-with-pluxx-checkout.sh "${GITHUB_REF_NAME#v}"
