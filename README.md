@@ -105,11 +105,15 @@ The Pluxx plugin gives host-native skills and command entrypoints for the main P
 - import an MCP into a Pluxx project
 - migrate an existing host-native plugin into Pluxx
 - validate a scaffold
+- prepare richer website/docs/local context
 - refine taxonomy
 - rewrite instructions
 - review a scaffold
 - build and install host bundles
+- verify installed host state
 - sync an MCP-derived scaffold
+- run the one-shot autopilot path
+- publish a plugin release
 
 ## Build Locally
 

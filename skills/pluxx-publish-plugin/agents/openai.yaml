@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publish Plugin"
+  short_description: "Package the current plugin for release distribution"
+  default_prompt: "Use Pluxx to publish this plugin for release distribution, then summarize the generated host bundles, install scripts, and any remaining blockers."

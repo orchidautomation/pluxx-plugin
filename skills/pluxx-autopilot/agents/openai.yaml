@@ -1,0 +1,4 @@
+interface:
+  display_name: "Autopilot"
+  short_description: "Run the one-shot import, refinement, and verification path"
+  default_prompt: "Use Pluxx autopilot on this MCP or scaffold, then tell me exactly what it changed and what still needs human follow-up."

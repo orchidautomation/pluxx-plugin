@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare Context"
+  short_description: "Ingest website docs, product docs, and local context into the Pluxx agent pack"
+  default_prompt: "Use Pluxx to prepare docs, website, and local context for this scaffold, then tell me which refinement workflow should run next."
