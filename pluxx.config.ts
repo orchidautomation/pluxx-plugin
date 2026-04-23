@@ -2,7 +2,7 @@ import { definePlugin } from 'pluxx'
 
 export default definePlugin({
   name: 'pluxx',
-  version: '0.1.0',
+  version: '0.1.1',
   description: 'Build once, ship installable plugins to Claude, Cursor, Codex, and OpenCode.',
   author: {
     name: 'Orchid Automation',
