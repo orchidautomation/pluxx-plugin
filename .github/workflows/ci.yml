@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PLUXX_REPO_DIR: ${{ runner.temp }}/pluxx-cli
+      PLUXX_REPO_DIR: ${{ github.workspace }}/pluxx-cli
 
     steps:
       - name: Checkout plugin repo
