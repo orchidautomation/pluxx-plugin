@@ -12,6 +12,7 @@ fi
 
 (
   cd "$PLUXX_REPO_DIR"
+  bun install --frozen-lockfile
   bun run build
 )
 
