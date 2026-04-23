@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PLUXX_REPO_DIR: ${{ github.workspace }}/pluxx-cli
+      GH_TOKEN: ${{ github.token }}
 
     steps:
       - name: Checkout plugin repo
@@ -29,7 +30,7 @@ jobs:
         run: ./scripts/build-with-pluxx-checkout.sh
 
       - name: Validate GitHub release publish plan
-        run: bun "$PLUXX_REPO_DIR/bin/pluxx.js" publish --github-release --dry-run
+        run: bun "$PLUXX_REPO_DIR/bin/pluxx.js" publish --github-release --allow-dirty --dry-run
 
       - name: Upload raw dist artifact
         if: success()
