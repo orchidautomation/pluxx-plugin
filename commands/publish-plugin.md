@@ -13,6 +13,7 @@ Arguments: $ARGUMENTS
 2. Validate that the current project is healthy enough to publish.
 3. Run `pluxx publish` with the requested release options when appropriate.
 4. Summarize the release artifacts and install scripts that were produced.
-5. Call out anything that still blocks an actual release.
+5. If no tagged release exists yet, explain that raw `main` installer links are the shareable fallback until the GitHub release lands.
+6. Call out anything that still blocks an actual release.
 
 Return what was published, what artifacts were generated, and any remaining release caveats.

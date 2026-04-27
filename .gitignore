@@ -1,6 +1,11 @@
 .DS_Store
 .pluxx/
 dist/
-release/
+release/*
+!release/install-claude-code.sh
+!release/install-cursor.sh
+!release/install-codex.sh
+!release/install-opencode.sh
+!release/install-all.sh
 node_modules/
 *.swp

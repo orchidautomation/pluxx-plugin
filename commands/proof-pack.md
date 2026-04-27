@@ -16,4 +16,5 @@ Arguments: $ARGUMENTS
    - screenshots
    - proof note
    - repo/demo/docs surfaces
-4. Call out anything still missing before the plugin is shareable externally.
+4. Prefer raw `main` installer links when the repo is pushed but no tagged release exists yet.
+5. Call out anything still missing before the plugin is shareable externally.

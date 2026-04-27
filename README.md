@@ -17,6 +17,28 @@ first-party Pluxx plugin should set the bar for:
 
 ## Get The Plugin
 
+There are now two valid install paths:
+
+- **Current main**: always works after source is pushed to GitHub, even before the first tagged release
+- **Latest release**: stable prebuilt bundles from GitHub Releases
+
+If you just pushed source and want curl links that work immediately, use the
+**current main** installers below. If you want stable prebuilt bundles, cut a
+tagged release first and then use the **latest release** links.
+
+### Install From Current Main
+
+These scripts pull the repository source from GitHub, build the requested host
+bundle with `pluxx` or `npx @orchid-labs/pluxx@latest`, and install it locally.
+
+- [Current main Claude installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-claude-code.sh)
+- [Current main Cursor installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-cursor.sh)
+- [Current main Codex installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-codex.sh)
+- [Current main OpenCode installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-opencode.sh)
+- [Current main core-four installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-all.sh)
+
+### Install From Latest Release
+
 If you are trying to install the plugin and do **not** care about the source repo, use the release assets directly:
 
 - [Latest release page](https://github.com/orchidautomation/pluxx-plugin/releases/latest)
@@ -32,7 +54,15 @@ If you are trying to install the plugin and do **not** care about the source rep
 
 This repository's file list is the **source project**. The installable bundles live under **Releases**, not in the root file tree.
 
-### Fastest Claude Code Install
+### Fastest Claude Code Install From Current Main
+
+If you want the newest pushed source and do not want to wait for a GitHub release:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-claude-code.sh | bash
+```
+
+### Fastest Claude Code Install From Latest Release
 
 If you want the plugin in Claude Code user scope right now:
 
@@ -48,25 +78,49 @@ That script:
 
 If Claude is already open, run `/reload-plugins` after install.
 
-### Fastest Cursor Install
+### Fastest Cursor Install From Current Main
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-cursor.sh | bash
+```
+
+### Fastest Cursor Install From Latest Release
 
 ```bash
 curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-cursor.sh | bash
 ```
 
-### Fastest Codex Install
+### Fastest Codex Install From Current Main
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-codex.sh | bash
+```
+
+### Fastest Codex Install From Latest Release
 
 ```bash
 curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-codex.sh | bash
 ```
 
-### Fastest OpenCode Install
+### Fastest OpenCode Install From Current Main
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-opencode.sh | bash
+```
+
+### Fastest OpenCode Install From Latest Release
 
 ```bash
 curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-opencode.sh | bash
 ```
 
-### Install Across The Core Four
+### Install Across The Core Four From Current Main
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-all.sh | bash
+```
+
+### Install Across The Core Four From Latest Release
 
 ```bash
 curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-all.sh | bash
@@ -158,6 +212,8 @@ node ../pluxx/bin/pluxx.js build --target claude-code cursor codex opencode
 
 - `.github/workflows/ci.yml` validates the source project, uploads `dist/`, and dry-runs the core `pluxx publish --github-release` path
 - `.github/workflows/release.yml` builds the core-four bundles and calls core `pluxx publish --github-release` on tags
+- `release/install-*.sh` is the source-first install path and works straight from `main`
+- `releases/latest/download/install-*.sh` only updates when a tagged GitHub release exists
 
 ## Local Proof
 

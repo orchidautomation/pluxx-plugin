@@ -165,6 +165,9 @@ If the user wants the smoother path, help them bootstrap or upgrade the runtime 
 - Before telling the user a local install is healthy, prefer `pluxx verify-install`.
 - When the user asks about “core four support,” prefer `pluxx-translate-hosts` over vague compatibility claims.
 - When the user is preparing to share or launch the plugin, prefer `pluxx-proof-pack`.
+- When the user asks for curl install links, distinguish between:
+  - raw `main` installer links under `release/` that work immediately after push
+  - `releases/latest/download/...` links that only work after a tagged GitHub release exists
 - Findings come before summaries when the user asks for a review.
 
 ### What Good Looks Like

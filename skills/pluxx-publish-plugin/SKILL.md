@@ -33,6 +33,7 @@ Use this skill when the user wants to package and distribute the current plugin 
 ## Decision Points
 
 - If the plugin is only structurally healthy, route first to behavioral proof.
+- If the user wants shareable curl links before the first release exists, point them at the raw `main` installers under `release/`.
 - If the release is technically fine but the public surface is weak, route to `pluxx-proof-pack` before outreach.
 - If the user is testing the release machinery itself, make that explicit rather than overstating external readiness.
 
@@ -46,6 +47,7 @@ Use this skill when the user wants to package and distribute the current plugin 
 
 - release path blocked by validation failures
 - artifacts generated but no credible install/proof surface
+- source pushed but no tagged GitHub release yet, so `releases/latest/download/...` still points at nothing
 - stale versioning or tag mismatch
 - plugin ready locally but not yet ready for public distribution
 

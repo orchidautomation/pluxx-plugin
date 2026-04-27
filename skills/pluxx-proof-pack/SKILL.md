@@ -37,6 +37,7 @@ Use this skill when the plugin is working technically and the user now needs a s
 
 - If the plugin is still failing behavioral proof, do not package it as a success story yet.
 - If install friction is still high, prioritize direct install links before polishing narrative.
+- If the repo has no tagged release yet, prefer raw `main` installer links instead of dead `releases/latest/download/...` links.
 - If the user is reaching out to a real team, tailor the proof around the problem Pluxx solves, not internal compiler pride.
 
 ## Rules
@@ -48,6 +49,7 @@ Use this skill when the plugin is working technically and the user now needs a s
 ## What A Good Proof Pack Usually Includes
 
 - direct install paths
+- raw-source install paths when the repo is pushed but not released yet
 - one or two clear workflow screenshots
 - a proof note with live host coverage
 - repo or example source links
