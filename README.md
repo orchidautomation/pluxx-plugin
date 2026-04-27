@@ -10,7 +10,8 @@ The goal is not just to expose raw CLI commands inside another host. The
 first-party Pluxx plugin should set the bar for:
 
 - import and migration specialists
-- host translation review
+- workflow-first orchestration instead of command-per-step sprawl
+- host translation honesty
 - installed behavioral proof
 - runtime bootstrap and upgrade
 - proof-packaging and release operators
@@ -167,24 +168,31 @@ Download them from the repository's Releases page after each tagged release.
 
 ## What This Plugin Does
 
-The Pluxx plugin gives host-native skills and command entrypoints for the main Pluxx workflows:
+The public surface is intentionally smaller than the raw CLI.
+
+Instead of presenting every lifecycle step as its own first-class workflow, the
+plugin now centers on a small set of higher-level operator journeys:
 
 - import an MCP into a Pluxx project
 - migrate an existing host-native plugin into Pluxx
 - bootstrap or upgrade the underlying Pluxx runtime
-- validate a scaffold
-- prepare richer website/docs/local context
-- refine taxonomy
-- rewrite instructions
-- review a scaffold
-- review host translation quality across the core four
-- build and install host bundles
-- verify installed host state
-- run installed behavioral proof with example queries
-- sync an MCP-derived scaffold
+- refine a scaffold until it reads and translates like a real product
+- prove the scaffold through validate, build, install, verify, and behavioral checks
+- sync an MCP-derived scaffold later after the MCP changes
 - run the one-shot autopilot path
-- package a public proof pack
-- publish a plugin release
+- publish a plugin release with install links and proof assets
+
+Under the hood, the plugin still uses specialist agents for:
+
+- import architecture
+- migration
+- taxonomy shaping
+- instruction editing
+- host translation review
+- install verification
+- behavioral testing
+- proof publishing
+- release packaging
 
 ## Build Locally
 

@@ -35,7 +35,7 @@ Use this skill when an existing MCP-derived scaffold needs to be refreshed witho
 
 - If the diff is hard to predict, insist on `--dry-run --json` first.
 - If the sync removes skills or commands, call out whether preserved custom notes are now stranded.
-- If the sync changes behavior materially, route next to `pluxx-translate-hosts` and `pluxx-behavioral-proof`.
+- If the sync changes behavior materially, route next to `pluxx-refine-plugin` and `pluxx-prove-plugin`.
 
 ## Rules
 

@@ -46,14 +46,14 @@ That is a strong baseline.
 
 ## What The Current Plugin Still Feels Like
 
-Today the plugin still reads more like:
+The plugin should avoid feeling like:
 
-- a set of explicit workflow skills
-- plus a good command layer
-- plus release/install convenience
+- one command per internal step
+- a visible skill for every sub-stage
+- a CLI manual copied into a plugin shell
 
-That is useful, but it is not yet the strongest demonstration of what a
-multi-agent plugin can be.
+The public surface should instead collapse into a smaller number of user jobs,
+with the specialist logic moved underneath into the agent graph.
 
 The Exa walkthrough raised the bar. It showed that a serious plugin should also
 prove:
@@ -200,30 +200,29 @@ Owns:
 
 ## Command Surface We Should Aim For
 
-The existing commands are good, but the first-party plugin should grow into a
-clearer lifecycle:
+The public command surface should stay small and workflow-driven:
 
+- `/pluxx:bootstrap-runtime`
 - `/pluxx:import-mcp`
 - `/pluxx:migrate-plugin`
-- `/pluxx:prepare-context`
-- `/pluxx:shape-workflows`
-- `/pluxx:rewrite-instructions`
-- `/pluxx:translate-hosts`
-- `/pluxx:review-scaffold`
-- `/pluxx:build-install`
-- `/pluxx:verify-install`
-- `/pluxx:behavioral-proof`
-- `/pluxx:proof-pack`
+- `/pluxx:refine-plugin`
+- `/pluxx:prove-plugin`
+- `/pluxx:sync-mcp`
 - `/pluxx:publish-plugin`
 - `/pluxx:autopilot`
 
-The big missing commands today are:
+The internal stages should still exist, but as hidden specialist behavior:
 
-- `behavioral-proof`
-- `translate-hosts`
-- `proof-pack`
-
-Those are the clearest places where the Exa lessons should land.
+- context prep
+- taxonomy shaping
+- instruction rewriting
+- host translation review
+- findings-first scaffold review
+- deterministic validation
+- build/install
+- verify-install
+- behavioral proof
+- proof packaging
 
 ## Deterministic Vs Agentic Boundaries
 

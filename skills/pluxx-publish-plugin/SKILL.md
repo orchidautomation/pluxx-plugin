@@ -20,7 +20,7 @@ Use this skill when the user wants to package and distribute the current plugin 
    - `pluxx lint`
    - `pluxx test`
 2. Start with `release-operator` when the host supports specialist agents.
-3. Route through `pluxx-proof-pack` when the user needs outreach, docs, screenshots, or shareable install paths in addition to the release artifacts.
+3. Treat proof packaging as part of this workflow when the user needs outreach, docs, screenshots, or shareable install paths in addition to the release artifacts.
 4. Run:
    - `pluxx publish`
    - include release flags when the user asks for a specific release path
@@ -34,7 +34,7 @@ Use this skill when the user wants to package and distribute the current plugin 
 
 - If the plugin is only structurally healthy, route first to behavioral proof.
 - If the user wants shareable curl links before the first release exists, point them at the raw `main` installers under `release/`.
-- If the release is technically fine but the public surface is weak, route to `pluxx-proof-pack` before outreach.
+- If the release is technically fine but the public surface is weak, stay in this workflow and package the proof surface before outreach.
 - If the user is testing the release machinery itself, make that explicit rather than overstating external readiness.
 
 ## Rules

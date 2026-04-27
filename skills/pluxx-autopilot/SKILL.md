@@ -53,9 +53,9 @@ Use this skill when the user wants the one-shot path instead of a manually stage
   - runner
   - verification
 - Do not stop at "autopilot succeeded" when the user is aiming to ship. Route next to:
-  - `pluxx-translate-hosts`
-  - `pluxx-behavioral-proof`
-  - `pluxx-proof-pack`
+  - `pluxx-refine-plugin`
+  - `pluxx-prove-plugin`
+  - `pluxx-publish-plugin`
 
 ## Failure Modes To Call Out
 

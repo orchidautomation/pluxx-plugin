@@ -17,15 +17,24 @@ The normal workflow is:
 
 1. import an MCP into a deterministic scaffold
 2. migrate an existing single-host plugin when needed
-3. optionally prepare docs, website, and local context before semantic passes
-4. bootstrap or upgrade the Pluxx runtime when the machine is stale or missing it
-5. inspect and validate the generated project
-6. optionally refine taxonomy and instructions with a host agent
-7. review host translation quality across the core four
-8. build, verify, and install the target plugin bundles
-9. run behavioral proof when the workflow nuance matters
-10. package install/proof assets
-11. publish when the plugin is actually ready to distribute
+3. refine the scaffold until it reads like a real product instead of raw MCP glue
+4. prove the scaffold structurally and behaviorally across the hosts that matter
+5. optionally sync later after the MCP changes
+6. bootstrap or upgrade the Pluxx runtime when the machine is stale or missing it
+7. publish when the plugin is actually ready to distribute
+
+For local stdio MCPs, treat runtime bundling and install-time config as
+first-class concerns:
+
+- if the MCP command points at project-relative runtime files such as
+  `./build/index.js`, make sure those runtime folders are bundled into the
+  generated plugin source
+- current Pluxx imports auto-infer `passthrough` for these local stdio runtimes,
+  but the operator should still verify that result instead of assuming it
+- if the generated plugin seems to keep only skills plus `check-env.sh`, the MCP
+  may still be present but the install-time config may not have materialized yet
+- `pluxx doctor --consumer <installed-path>` is the right next step when the
+  installed host state feels incomplete
 
 ### Main Workflows
 
@@ -35,35 +44,14 @@ The normal workflow is:
 - `pluxx-migrate-plugin`
   Use when the user already has a Claude Code, Cursor, Codex, or OpenCode plugin and wants to bring it into Pluxx.
 
-- `pluxx-validate-scaffold`
-  Use when the user wants a deterministic health and quality pass with `doctor`, `lint`, `eval`, and `test`.
-
-- `pluxx-prepare-context`
-  Use when the user wants to ingest website docs, product docs, or local context before rewriting taxonomy or instructions.
-
-- `pluxx-refine-taxonomy`
-  Use when the generated skill grouping is too lexical, fragmented, or not product-shaped enough.
-
-- `pluxx-rewrite-instructions`
-  Use when the scaffold structure is fine but the shared instructions need to sound more like the actual product.
-
-- `pluxx-review-scaffold`
-  Use when the user wants findings before shipping, not blind rewrites.
-
 - `pluxx-bootstrap-runtime`
   Use when the machine is missing `pluxx`, is stale, or the user wants a smoother operator path than ad hoc `npx` usage.
 
-- `pluxx-translate-hosts`
-  Use when the user wants preserve / translate / degrade / drop truth across Claude, Cursor, Codex, and OpenCode.
+- `pluxx-refine-plugin`
+  Use when the first scaffold exists, but it still needs context prep, workflow shaping, better instructions, translation honesty, or findings-first review.
 
-- `pluxx-build-install`
-  Use when the user wants to build installable plugins and optionally install one or more targets locally.
-
-- `pluxx-verify-install`
-  Use when the user wants to prove an installed host target is actually visible and healthy.
-
-- `pluxx-behavioral-proof`
-  Use when the user wants to prove installed workflows actually behave correctly with real example prompts.
+- `pluxx-prove-plugin`
+  Use when the user wants to validate, build, install, verify, and behaviorally prove the scaffold instead of stopping at source-level confidence.
 
 - `pluxx-sync-mcp`
   Use when an existing MCP-derived scaffold needs to be refreshed safely.
@@ -71,11 +59,8 @@ The normal workflow is:
 - `pluxx-autopilot`
   Use when the user wants the one-shot import, refine, and verification path.
 
-- `pluxx-proof-pack`
-  Use when the user wants install links, screenshots, docs/example pages, and a shareable proof surface.
-
 - `pluxx-publish-plugin`
-  Use when the user wants to package the current plugin for release distribution.
+  Use when the user wants to package the current plugin for release distribution, install links, screenshots, and shareable proof assets.
 
 ### Explicit Commands
 
@@ -85,35 +70,14 @@ The normal workflow is:
 - `/pluxx:migrate-plugin`
   Explicit entrypoint for bringing an existing host-native plugin into a maintained Pluxx source project.
 
-- `/pluxx:validate-scaffold`
-  Explicit entrypoint for running deterministic health and quality checks before deeper edits or shipping.
-
-- `/pluxx:prepare-context`
-  Explicit entrypoint for ingesting website docs, product docs, or local files into the Pluxx agent pack before semantic refinement.
-
-- `/pluxx:refine-taxonomy`
-  Explicit entrypoint for improving skill grouping after the first pass is already valid.
-
-- `/pluxx:rewrite-instructions`
-  Explicit entrypoint for tightening `INSTRUCTIONS.md` without rewriting the whole scaffold.
-
-- `/pluxx:review-scaffold`
-  Explicit entrypoint for findings-first review before shipping.
-
 - `/pluxx:bootstrap-runtime`
   Explicit entrypoint for installing, upgrading, or checking the Pluxx CLI runtime.
 
-- `/pluxx:translate-hosts`
-  Explicit entrypoint for reviewing preserve / translate / degrade / drop behavior across the core four.
+- `/pluxx:refine-plugin`
+  Explicit entrypoint for taking a structurally valid scaffold and making it read and translate like a serious product.
 
-- `/pluxx:build-install`
-  Explicit entrypoint for building the requested target bundles and optionally installing them locally for testing.
-
-- `/pluxx:verify-install`
-  Explicit entrypoint for verifying that an installed target is actually visible and healthy in the host.
-
-- `/pluxx:behavioral-proof`
-  Explicit entrypoint for running the installed behavioral proof path with example queries.
+- `/pluxx:prove-plugin`
+  Explicit entrypoint for turning source confidence into install, verify, and behavioral proof across the hosts that matter.
 
 - `/pluxx:sync-mcp`
   Explicit entrypoint for refreshing an existing scaffold from its MCP source.
@@ -121,11 +85,8 @@ The normal workflow is:
 - `/pluxx:autopilot`
   Explicit entrypoint for the one-shot import, refine, and verification path.
 
-- `/pluxx:proof-pack`
-  Explicit entrypoint for packaging screenshots, install links, and proof notes around a healthy plugin.
-
 - `/pluxx:publish-plugin`
-  Explicit entrypoint for packaging the current plugin for release distribution.
+  Explicit entrypoint for packaging the current plugin for release distribution and shareable proof assets.
 
 These command entrypoints are for hosts that support plugin commands directly. In Codex, use `@pluxx` and pick the matching skill instead; `/` is reserved for native Codex commands.
 
@@ -161,10 +122,14 @@ If the user wants the smoother path, help them bootstrap or upgrade the runtime 
 - When refining a scaffold, preserve mixed-ownership boundaries and custom-note blocks.
 - Do not silently rewrite auth wiring, target configuration, or generated platform outputs unless the user explicitly asks.
 - Before shipping, run `pluxx doctor`, `pluxx lint`, and `pluxx test`.
-- Before claiming a workflow is really healthy, prefer `pluxx test --install --trust --behavioral` when the plugin defines meaningful example queries.
-- Before telling the user a local install is healthy, prefer `pluxx verify-install`.
-- When the user asks about “core four support,” prefer `pluxx-translate-hosts` over vague compatibility claims.
-- When the user is preparing to share or launch the plugin, prefer `pluxx-proof-pack`.
+- Before claiming a workflow is really healthy, prefer the `pluxx-prove-plugin` path rather than isolated structural checks.
+- Before telling the user a local install is healthy, prefer `pluxx verify-install` and `pluxx doctor --consumer` inside the proof path.
+- When a local stdio import feels like “skills only” after install, check two
+  things before concluding the MCP was lost:
+  - whether project-relative runtime folders were bundled through `passthrough`
+  - whether required install-time config materialized into `.pluxx-user.json`
+- When the user asks about “core four support,” handle that inside `pluxx-refine-plugin` instead of vague compatibility claims.
+- When the user is preparing to share or launch the plugin, handle proof-packaging inside `pluxx-publish-plugin`.
 - When the user asks for curl install links, distinguish between:
   - raw `main` installer links under `release/` that work immediately after push
   - `releases/latest/download/...` links that only work after a tagged GitHub release exists
@@ -176,7 +141,7 @@ A good Pluxx result should leave the user with:
 
 - a valid `pluxx.config.ts`
 - a useful `INSTRUCTIONS.md`
-- product-shaped `skills/*/SKILL.md`
+- a small set of product-shaped public workflows rather than a command-per-step maze
 - passing `doctor`, `lint`, and `test`
 - generated target bundles under `dist/`
 - verified installed host state when local install was requested
@@ -188,6 +153,7 @@ A good Pluxx result should leave the user with:
 - `pluxx autopilot` is the one-shot path.
 - `pluxx init` plus manual refinement is usually the easier path to inspect and debug.
 - `pluxx migrate` is the bridge when the user already invested heavily in one host.
-- `pluxx verify-install` is the install-state proof after local install.
+- `pluxx refine` is not a real CLI command; the plugin-level refinement journey composes context prep, taxonomy shaping, instruction rewriting, translation review, and scaffold review.
+- `pluxx prove` is not a real CLI command; the plugin-level proof journey composes validate, build, install, verify-install, consumer diagnosis, and behavioral proof.
 - `pluxx publish` is the packaging and release path after the scaffold is healthy.
 - For OAuth-first MCPs, import auth and runtime auth may differ. Do not assume a bearer import token is the correct long-term runtime auth shape.
