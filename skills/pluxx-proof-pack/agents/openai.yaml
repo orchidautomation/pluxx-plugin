@@ -1,0 +1,4 @@
+interface:
+  display_name: "Proof Pack"
+  short_description: "Package install links, screenshots, and proof surfaces for external sharing"
+  default_prompt: "Use Pluxx to package the strongest install links, proof assets, and release-facing demo surfaces for this plugin."

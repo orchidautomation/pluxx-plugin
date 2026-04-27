@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "name": "bootstrap-runtime",
+      "targets": {
+        "claude-code": {
+          "prompt": "/pluxx:bootstrap-runtime explain how to install or upgrade the Pluxx CLI on this machine. Return the safest next command and when to use npx instead of a global install.",
+          "require": [
+            "pluxx upgrade",
+            "npx @orchid-labs/pluxx"
+          ]
+        },
+        "cursor": {
+          "prompt": "/pluxx-bootstrap-runtime explain how to install or upgrade the Pluxx CLI on this machine. Return the safest next command and when to use npx instead of a global install.",
+          "require": [
+            "pluxx upgrade",
+            "npx @orchid-labs/pluxx"
+          ]
+        },
+        "codex": {
+          "prompt": "Use Pluxx to explain how to install or upgrade the Pluxx CLI on this machine. Return the safest next command and when to use npx instead of a global install.",
+          "require": [
+            "pluxx upgrade",
+            "npx @orchid-labs/pluxx"
+          ]
+        },
+        "opencode": {
+          "prompt": "/bootstrap-runtime explain how to install or upgrade the Pluxx CLI on this machine. Return the safest next command and when to use npx instead of a global install.",
+          "require": [
+            "pluxx upgrade",
+            "npx @orchid-labs/pluxx"
+          ]
+        }
+      }
+    },
+    {
+      "name": "behavioral-proof",
+      "targets": {
+        "claude-code": {
+          "prompt": "/pluxx:behavioral-proof explain how to prove an installed plugin actually works across the core four, not just that it builds or installs.",
+          "require": [
+            "pluxx test --install --trust --behavioral",
+            "pluxx verify-install"
+          ]
+        },
+        "cursor": {
+          "prompt": "/pluxx-behavioral-proof explain how to prove an installed plugin actually works across the core four, not just that it builds or installs.",
+          "require": [
+            "pluxx test --install --trust --behavioral",
+            "pluxx verify-install"
+          ]
+        },
+        "codex": {
+          "prompt": "Use Pluxx to explain how to prove an installed plugin actually works across the core four, not just that it builds or installs. Return the strongest command and the supporting check.",
+          "require": [
+            "pluxx test --install --trust --behavioral",
+            "pluxx verify-install"
+          ]
+        },
+        "opencode": {
+          "prompt": "/behavioral-proof explain how to prove an installed plugin actually works across the core four, not just that it builds or installs.",
+          "require": [
+            "pluxx test --install --trust --behavioral",
+            "pluxx verify-install"
+          ]
+        }
+      }
+    }
+  ]
+}

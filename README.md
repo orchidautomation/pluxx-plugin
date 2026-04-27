@@ -2,6 +2,19 @@
 
 Official first-party Pluxx plugin source for Claude Code, Cursor, Codex, and OpenCode.
 
+See [docs/ultimate-pluxx-plugin.md](./docs/ultimate-pluxx-plugin.md) for the
+target shape of the first-party plugin and the gap between the current helper
+pack and the higher-bar multi-agent control plane we want to build.
+
+The goal is not just to expose raw CLI commands inside another host. The
+first-party Pluxx plugin should set the bar for:
+
+- import and migration specialists
+- host translation review
+- installed behavioral proof
+- runtime bootstrap and upgrade
+- proof-packaging and release operators
+
 ## Get The Plugin
 
 If you are trying to install the plugin and do **not** care about the source repo, use the release assets directly:
@@ -104,15 +117,19 @@ The Pluxx plugin gives host-native skills and command entrypoints for the main P
 
 - import an MCP into a Pluxx project
 - migrate an existing host-native plugin into Pluxx
+- bootstrap or upgrade the underlying Pluxx runtime
 - validate a scaffold
 - prepare richer website/docs/local context
 - refine taxonomy
 - rewrite instructions
 - review a scaffold
+- review host translation quality across the core four
 - build and install host bundles
 - verify installed host state
+- run installed behavioral proof with example queries
 - sync an MCP-derived scaffold
 - run the one-shot autopilot path
+- package a public proof pack
 - publish a plugin release
 
 ## Build Locally
@@ -148,8 +165,12 @@ For the strongest deterministic local proof:
 
 ```bash
 bun --cwd ../pluxx run build
-node ../pluxx/bin/pluxx.js test --install --target claude-code cursor codex opencode
+node ../pluxx/bin/pluxx.js test --install --trust --behavioral --target claude-code cursor codex opencode
 ```
+
+That behavioral lane reads this repo's installed example queries from
+`.pluxx/behavioral-smoke.json`, so the plugin proves not just that bundles build
+and install, but that the installed workflows respond credibly in the hosts.
 
 ## Notes
 

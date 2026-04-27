@@ -1,0 +1,4 @@
+interface:
+  display_name: "Behavioral Proof"
+  short_description: "Prove the installed plugin actually behaves correctly across the core four"
+  default_prompt: "Use Pluxx to run or explain the strongest behavioral proof path for this plugin, not just build and install checks."

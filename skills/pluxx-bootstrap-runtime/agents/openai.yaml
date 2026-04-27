@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bootstrap Runtime"
+  short_description: "Install or upgrade the Pluxx CLI before deeper plugin workflows"
+  default_prompt: "Use Pluxx to check whether the runtime is installed, then tell me the safest way to install or upgrade it on this machine."

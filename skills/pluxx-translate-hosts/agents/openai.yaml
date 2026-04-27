@@ -1,0 +1,4 @@
+interface:
+  display_name: "Translate Hosts"
+  short_description: "Review preserve, translate, degrade, and drop behavior across the core four"
+  default_prompt: "Use Pluxx to review how this scaffold translates across Claude, Cursor, Codex, and OpenCode, then tell me the highest-value native-depth gap."

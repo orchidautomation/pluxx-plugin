@@ -7,6 +7,13 @@ description: Rewrite INSTRUCTIONS.md so a Pluxx scaffold explains itself clearly
 
 Use this skill when the scaffold structure is fine but the shared instructions need to sound more like the actual MCP product.
 
+## Inputs To Clarify
+
+- what the product actually helps users do
+- what setup or auth caveats must be surfaced early
+- whether the user wants a terse operator voice or a more guided onboarding voice
+- whether the current instructions are weak because they are too generic or because the source context is still incomplete
+
 ## Workflow
 
 1. Refresh context:
@@ -20,6 +27,12 @@ Use this skill when the scaffold structure is fine but the shared instructions n
    - `pluxx lint`
    - `pluxx test`
 
+## Decision Points
+
+- If the product story is still fuzzy, route first to `pluxx-prepare-context` instead of inventing copy.
+- If the instructions are fine but the skill grouping is wrong, route to `pluxx-refine-taxonomy` instead of overloading the instruction rewrite.
+- If the real issue is cross-host nuance, route next to `pluxx-translate-hosts`.
+
 ## Rules
 
 - Keep the output concise and operational.
@@ -28,6 +41,13 @@ Use this skill when the scaffold structure is fine but the shared instructions n
 - Clarify setup/admin/account/runtime boundaries so agents know where each skill belongs.
 - Explain what the plugin is for, how the skills should be used, and what the host agent must not do.
 - Do not rewrite custom sections unless the user explicitly asks.
+
+## Failure Modes To Avoid
+
+- copying raw MCP language into product-facing instructions
+- burying critical auth/setup caveats too late
+- promising host behaviors the generated plugin cannot actually preserve
+- bloating `INSTRUCTIONS.md` when the real problem belongs in individual skills
 
 ## Output
 
