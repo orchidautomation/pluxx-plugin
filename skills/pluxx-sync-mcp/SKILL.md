@@ -3,7 +3,7 @@ name: pluxx-sync-mcp
 description: Refresh an MCP-derived Pluxx scaffold and preserve custom sections.
 ---
 
-# Pluxx Sync MCP
+# Sync MCP
 
 Use this skill when an existing MCP-derived scaffold needs to be refreshed without losing the user’s custom notes.
 

@@ -3,7 +3,7 @@ name: pluxx-publish-plugin
 description: Package the current plugin for release distribution.
 ---
 
-# Pluxx Publish Plugin
+# Publish Plugin
 
 Use this skill when the user wants to package and distribute the current plugin instead of stopping at local builds.
 

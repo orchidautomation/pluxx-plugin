@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prove Plugin"
+  short_description: "Validate, build, install, verify, and behaviorally prove a plugin"
+  default_prompt: "Use Pluxx to prove this plugin structurally and behaviorally, then tell me what passed, what failed, and the smallest next step."

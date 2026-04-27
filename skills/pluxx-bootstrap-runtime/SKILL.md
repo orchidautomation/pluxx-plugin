@@ -3,7 +3,7 @@ name: pluxx-bootstrap-runtime
 description: Install, upgrade, or validate the local Pluxx CLI runtime before running deeper workflows.
 ---
 
-# Pluxx Bootstrap Runtime
+# Bootstrap Runtime
 
 Use this skill when the machine is missing `pluxx`, is on a stale version, or when a user wants the smoothest local operator path instead of relying on `npx` every time.
 

@@ -3,7 +3,7 @@ name: pluxx-prove-plugin
 description: Prove a scaffold structurally, install it, and check real workflow behavior.
 ---
 
-# Pluxx Prove Plugin
+# Prove Plugin
 
 Use this skill when the user wants more than source confidence. This is the
 proof journey for a plugin that should be trusted in real hosts.

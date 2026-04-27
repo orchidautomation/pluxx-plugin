@@ -3,7 +3,7 @@ name: pluxx-autopilot
 description: Run the one-shot Pluxx import, refinement, and verification path.
 ---
 
-# Pluxx Autopilot
+# Autopilot
 
 Use this skill when the user wants the one-shot path instead of a manually staged import and refinement flow.
 

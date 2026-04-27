@@ -3,7 +3,7 @@ name: pluxx-refine-plugin
 description: Take a valid scaffold and turn it into a product-shaped, host-honest plugin.
 ---
 
-# Pluxx Refine Plugin
+# Refine Plugin
 
 Use this skill when the first scaffold exists, but it still feels too lexical,
 too generic, or too weak to ship as a serious plugin source.

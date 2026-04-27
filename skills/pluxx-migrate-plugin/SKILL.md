@@ -3,7 +3,7 @@ name: pluxx-migrate-plugin
 description: Bring an existing Claude, Cursor, Codex, or OpenCode plugin into Pluxx.
 ---
 
-# Pluxx Migrate Plugin
+# Migrate Plugin
 
 Use this skill when the user already has a host-native plugin and wants to convert it into a canonical Pluxx project instead of rewriting it by hand.
 

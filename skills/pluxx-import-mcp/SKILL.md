@@ -3,7 +3,7 @@ name: pluxx-import-mcp
 description: Import an MCP into a Pluxx project and validate the first pass.
 ---
 
-# Pluxx Import MCP
+# Import MCP
 
 Use this skill when the task is: bring an MCP server into Pluxx, generate the initial scaffold, and prove it works.
 
