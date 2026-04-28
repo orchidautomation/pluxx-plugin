@@ -10,6 +10,7 @@ Use this skill when the user wants the one-shot path instead of a manually stage
 ## Inputs To Clarify
 
 - source type: remote MCP, local stdio command, or existing working project
+- whether the MCP is already installed in Claude Code, Cursor, Codex, or OpenCode
 - whether the user is optimizing for speed, debuggability, or polish
 - whether auth/runtime details are already known
 - whether the user wants only a first-pass scaffold or something close to shareable
@@ -19,17 +20,22 @@ Use this skill when the user wants the one-shot path instead of a manually stage
 1. Identify the source and desired scope:
    - remote MCP URL
    - local stdio command
+   - already-installed host MCP config
    - current working project
    - desired targets
-2. If the Pluxx runtime is missing or stale, route through `pluxx-bootstrap-runtime` first.
-3. Make the mode explicit:
+2. If the user only knows that the MCP is already working in a host, do not guess the command:
+   - run `pluxx discover-mcp`
+   - have the user pick the right `<host:name>` selector if there are multiple matches
+   - use the staged `pluxx-import-mcp` path with `pluxx init --from-installed-mcp ... --yes` before deeper autopilot refinement
+3. If the Pluxx runtime is missing or stale, route through `pluxx-bootstrap-runtime` first.
+4. Make the mode explicit:
    - `quick`
    - `standard`
    - `thorough`
-4. Run the one-shot path:
+5. Run the one-shot path when the source is an explicit URL/stdio command:
    - `pluxx autopilot --from-mcp ... --yes`
    - include runner, mode, and review flags when they matter
-5. Summarize:
+6. Summarize:
    - files created or updated
    - which agent passes ran
    - which verification checks ran
@@ -40,6 +46,7 @@ Use this skill when the user wants the one-shot path instead of a manually stage
 - Use `quick` when the user just wants a first scaffold.
 - Use `standard` when they want a credible baseline with normal checks.
 - Use `thorough` when the workflow is subtle or likely to become a public proof surface.
+- Use staged import rather than autopilot when the only source is an installed-host selector, because `pluxx autopilot` currently takes explicit `--from-mcp` sources while `init` supports `--from-installed-mcp`.
 - If the user is learning or debugging, prefer the staged lifecycle once autopilot stops being transparent enough.
 
 ## Rules

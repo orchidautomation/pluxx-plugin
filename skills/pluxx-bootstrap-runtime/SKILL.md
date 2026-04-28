@@ -13,6 +13,7 @@ Use this skill when the machine is missing `pluxx`, is on a stale version, or wh
 - whether the user wants a global install or a zero-install fallback
 - whether a specific Pluxx version matters for the current task
 - whether the host plugin is already installed and just missing the underlying runtime
+- whether the workflow needs a CLI feature introduced after the installed version, such as `discover-mcp` / `init --from-installed-mcp`
 
 ## Workflow
 
@@ -24,6 +25,7 @@ Use this skill when the machine is missing `pluxx`, is on a stale version, or wh
 3. If `pluxx` is present but stale, prefer:
    - `pluxx upgrade`
    - or `pluxx upgrade --version x.y.z`
+   - require a new enough version when the user wants installed-MCP discovery
 4. Explain when `npx @orchid-labs/pluxx` is the better fallback:
    - ephemeral use
    - no global install desired
@@ -37,6 +39,7 @@ Use this skill when the machine is missing `pluxx`, is on a stale version, or wh
 ## Decision Points
 
 - Prefer `pluxx upgrade` when the CLI already exists and just needs to catch up.
+- If `pluxx discover-mcp` or `pluxx init --from-installed-mcp` is unknown, the machine is on an old CLI. Upgrade before continuing the import workflow.
 - Prefer `npm install -g @orchid-labs/pluxx@latest` when the user wants a stable operator path they will reuse often.
 - Prefer `npx @orchid-labs/pluxx` when the machine is locked down or the user only needs a one-off run.
 

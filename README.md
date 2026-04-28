@@ -173,6 +173,7 @@ The public surface is intentionally smaller than the raw CLI.
 Instead of presenting every lifecycle step as its own first-class workflow, the
 plugin now centers on a small set of higher-level operator journeys:
 
+- discover MCPs that are already installed in Claude Code, Cursor, Codex, or OpenCode
 - import an MCP into a Pluxx project
 - migrate an existing host-native plugin into Pluxx
 - bootstrap or upgrade the underlying Pluxx runtime
@@ -181,6 +182,11 @@ plugin now centers on a small set of higher-level operator journeys:
 - sync an MCP-derived scaffold later after the MCP changes
 - run the one-shot autopilot path
 - publish a plugin release with install links and proof assets
+
+If a user already has an MCP configured in a host, the import journey should
+start with `pluxx discover-mcp` and then use
+`pluxx init --from-installed-mcp <host:name> --yes`. That avoids asking the
+user to reconstruct stdio commands, remote URLs, or env-var wiring from memory.
 
 Under the hood, the plugin still uses specialist agents for:
 

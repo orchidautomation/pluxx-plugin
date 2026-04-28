@@ -15,13 +15,14 @@ Pluxx is the plugin authoring and maintenance layer for MCP teams.
 
 The normal workflow is:
 
-1. import an MCP into a deterministic scaffold
-2. migrate an existing single-host plugin when needed
-3. refine the scaffold until it reads like a real product instead of raw MCP glue
-4. prove the scaffold structurally and behaviorally across the hosts that matter
-5. optionally sync later after the MCP changes
-6. bootstrap or upgrade the Pluxx runtime when the machine is stale or missing it
-7. publish when the plugin is actually ready to distribute
+1. discover an already-installed MCP when the user has configured it in Claude Code, Cursor, Codex, or OpenCode
+2. import an MCP into a deterministic scaffold
+3. migrate an existing single-host plugin when needed
+4. refine the scaffold until it reads like a real product instead of raw MCP glue
+5. prove the scaffold structurally and behaviorally across the hosts that matter
+6. optionally sync later after the MCP changes
+7. bootstrap or upgrade the Pluxx runtime when the machine is stale or missing it
+8. publish when the plugin is actually ready to distribute
 
 For local stdio MCPs, treat runtime bundling and install-time config as
 first-class concerns:
@@ -36,10 +37,23 @@ first-class concerns:
 - `pluxx doctor --consumer <installed-path>` is the right next step when the
   installed host state feels incomplete
 
+For already-installed MCPs, prefer the discovery path before asking the user to
+reconstruct a URL, stdio command, env vars, or host config from memory:
+
+- run `pluxx discover-mcp` to list MCP servers already configured in Claude
+  Code, Cursor, Codex, and OpenCode
+- if the user knows the host, narrow it with `pluxx discover-mcp --host codex`
+  or `pluxx discover-mcp --host cursor opencode`
+- import with `pluxx init --from-installed-mcp <host:name> --yes`
+- use the host-qualified selector when names overlap, for example
+  `codex:prospeo` or `opencode:exa`
+- treat discovery warnings about redacted literal secrets as expected safety
+  behavior; ask for env var names, not raw secret values
+
 ### Main Workflows
 
 - `pluxx-import-mcp`
-  Use when the user wants to scaffold a plugin from a remote MCP URL or a local stdio MCP command.
+  Use when the user wants to scaffold a plugin from an already-installed MCP, a remote MCP URL, or a local stdio MCP command.
 
 - `pluxx-migrate-plugin`
   Use when the user already has a Claude Code, Cursor, Codex, or OpenCode plugin and wants to bring it into Pluxx.
@@ -65,7 +79,7 @@ first-class concerns:
 ### Explicit Commands
 
 - `/pluxx:import-mcp`
-  Explicit entrypoint for turning an MCP URL or stdio command into a first-pass Pluxx scaffold.
+  Explicit entrypoint for turning an installed MCP, MCP URL, or stdio command into a first-pass Pluxx scaffold.
 
 - `/pluxx:migrate-plugin`
   Explicit entrypoint for bringing an existing host-native plugin into a maintained Pluxx source project.
@@ -118,6 +132,9 @@ If the user wants the smoother path, help them bootstrap or upgrade the runtime 
 ### Operating Rules
 
 - Prefer a deterministic first pass before semantic rewrites.
+- When importing and the user mentions an MCP already working in Claude Code,
+  Cursor, Codex, or OpenCode, run discovery first instead of asking them to
+  manually re-enter host config.
 - When importing, call out auth shape clearly: none, bearer, custom header, or platform-managed runtime auth.
 - When refining a scaffold, preserve mixed-ownership boundaries and custom-note blocks.
 - Do not silently rewrite auth wiring, target configuration, or generated platform outputs unless the user explicitly asks.
