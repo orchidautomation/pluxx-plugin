@@ -21,6 +21,7 @@ Use this skill when the user wants to package and distribute the current plugin 
    - `pluxx test`
 2. Start with `release-operator` when the host supports specialist agents.
 3. Treat proof packaging as part of this workflow when the user needs outreach, docs, screenshots, or shareable install paths in addition to the release artifacts.
+   - use `pluxx-proof-pack` when the release needs public install and proof polish before publishing.
 4. Run:
    - `pluxx publish`
    - include release flags when the user asks for a specific release path

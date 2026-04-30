@@ -16,6 +16,11 @@ stages that advanced operators may think of separately:
 - instruction rewriting
 - host translation review
 - findings-first scaffold review
+- argument, command, agent/subagent, hook, permission, and proof-shape review based on current Pluxx examples
+
+The matching command carries the argument UX:
+
+- `/pluxx:refine-plugin [context-or-focus optional]`
 
 ## Inputs To Clarify
 
@@ -39,6 +44,7 @@ stages that advanced operators may think of separately:
    - `taxonomy-shaper`
    - `instruction-editor`
    - `host-translator`
+   - `behavioral-tester` when proof cases are part of the product shape
 4. Tighten the scaffold as one coordinated refinement pass rather than as
    several disconnected edits.
 5. Re-run the smallest useful structural checks:
@@ -58,6 +64,10 @@ stages that advanced operators may think of separately:
   harder on the host-translation review inside this workflow.
 - If the main issue is install/runtime visibility, stop refining and route next
   to `pluxx-prove-plugin`.
+- If the workflow is repeated and parameterized, promote it into a command with `argument-hint` and a realistic `$ARGUMENTS` body instead of leaving it buried in generic prose.
+- If one command maps cleanly to one specialist, use command `agent` plus `subtask: true` so OpenCode and other subagent-aware hosts get stronger routing.
+- If a skill needs Claude-style argument UX, add `arguments` frontmatter while keeping non-Claude targets honest about degradation.
+- If the workflow needs setup checks, auth warnings, or release safeguards, model hooks intentionally and document trust implications.
 
 ## Rules
 
@@ -67,6 +77,7 @@ stages that advanced operators may think of separately:
 - Do not pretend host parity where translation or degradation is the honest
   answer.
 - If the scaffold already reads well, do not churn wording just to look busy.
+- Do not stop at a skill-only scaffold when the product clearly wants commands, arguments, specialist agents, hooks, or behavioral proof.
 
 ## Failure Modes To Call Out
 

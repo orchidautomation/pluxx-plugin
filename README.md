@@ -15,6 +15,7 @@ first-party Pluxx plugin should set the bar for:
 - installed behavioral proof
 - runtime bootstrap and upgrade
 - proof-packaging and release operators
+- current Pluxx CLI 0.1.9 practices: installed MCP discovery, local stdio runtime bundling, hook trust, command arguments, specialist subagents, and behavioral proof
 
 ## Get The Plugin
 
@@ -179,6 +180,8 @@ plugin now centers on a small set of higher-level operator journeys:
 - bootstrap or upgrade the underlying Pluxx runtime
 - refine a scaffold until it reads and translates like a real product
 - prove the scaffold through validate, build, install, verify, and behavioral checks
+- review preserve/translate/degrade/drop behavior across the core four
+- package proof into install links, screenshots, and release-facing assets
 - sync an MCP-derived scaffold later after the MCP changes
 - run the one-shot autopilot path
 - publish a plugin release with install links and proof assets
@@ -199,6 +202,10 @@ Under the hood, the plugin still uses specialist agents for:
 - behavioral testing
 - proof publishing
 - release packaging
+
+The intended companion runtime is Pluxx CLI `>=0.1.9`. Older CLIs may miss
+installed MCP discovery, current local stdio bundling diagnostics, behavioral
+proof behavior, or the latest Claude hook install fixes.
 
 ## Build Locally
 

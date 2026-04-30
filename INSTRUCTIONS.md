@@ -24,6 +24,11 @@ The normal workflow is:
 7. bootstrap or upgrade the Pluxx runtime when the machine is stale or missing it
 8. publish when the plugin is actually ready to distribute
 
+The best companion runtime for this plugin is Pluxx CLI `>=0.1.9`. If the local
+CLI is older, upgrade before relying on installed MCP discovery, local stdio
+runtime bundling diagnostics, installed-host behavioral proof, or the latest
+Claude hook install behavior.
+
 For local stdio MCPs, treat runtime bundling and install-time config as
 first-class concerns:
 
@@ -67,6 +72,15 @@ reconstruct a URL, stdio command, env vars, or host config from memory:
 - `pluxx-prove-plugin`
   Use when the user wants to validate, build, install, verify, and behaviorally prove the scaffold instead of stopping at source-level confidence.
 
+- `pluxx-behavioral-proof`
+  Use when the user specifically wants installed-host behavior proof with real example queries.
+
+- `pluxx-translate-hosts`
+  Use when the user asks how the source project maps into Claude Code, Cursor, Codex, and OpenCode, especially for commands, agents, hooks, permissions, runtime, or distribution.
+
+- `pluxx-proof-pack`
+  Use when the user wants install links, screenshots, proof notes, and release-facing assets after the plugin is healthy.
+
 - `pluxx-sync-mcp`
   Use when an existing MCP-derived scaffold needs to be refreshed safely.
 
@@ -92,6 +106,15 @@ reconstruct a URL, stdio command, env vars, or host config from memory:
 
 - `/pluxx:prove-plugin`
   Explicit entrypoint for turning source confidence into install, verify, and behavioral proof across the hosts that matter.
+
+- `/pluxx:behavioral-proof`
+  Explicit entrypoint for installed-host behavior proof.
+
+- `/pluxx:translate-hosts`
+  Explicit entrypoint for preserve / translate / degrade / drop review across the core four.
+
+- `/pluxx:proof-pack`
+  Explicit entrypoint for packaging install links, screenshots, proof notes, and release-facing assets.
 
 - `/pluxx:sync-mcp`
   Explicit entrypoint for refreshing an existing scaffold from its MCP source.
@@ -146,6 +169,8 @@ If the user wants the smoother path, help them bootstrap or upgrade the runtime 
   - whether project-relative runtime folders were bundled through `passthrough`
   - whether required install-time config materialized into `.pluxx-user.json`
 - When the user asks about “core four support,” handle that inside `pluxx-refine-plugin` instead of vague compatibility claims.
+- When the user asks specifically what survives across hosts, use `pluxx-translate-hosts` and return preserve / translate / degrade / drop truth.
+- When the user wants to prove actual host behavior, use `pluxx-behavioral-proof`, not only `doctor`, `lint`, or `build`.
 - When the user is preparing to share or launch the plugin, handle proof-packaging inside `pluxx-publish-plugin`.
 - When the user asks for curl install links, distinguish between:
   - raw `main` installer links under `release/` that work immediately after push

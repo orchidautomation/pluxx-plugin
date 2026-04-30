@@ -65,6 +65,43 @@
           ]
         }
       }
+    },
+    {
+      "name": "translate-hosts",
+      "targets": {
+        "claude-code": {
+          "prompt": "/pluxx:translate-hosts explain how Pluxx should preserve, translate, degrade, or drop commands, agents, hooks, and permissions across the core four.",
+          "require": [
+            "preserve",
+            "translate",
+            "degrade"
+          ]
+        },
+        "cursor": {
+          "prompt": "/pluxx-translate-hosts explain how Pluxx should preserve, translate, degrade, or drop commands, agents, hooks, and permissions across the core four.",
+          "require": [
+            "preserve",
+            "translate",
+            "degrade"
+          ]
+        },
+        "codex": {
+          "prompt": "Use Pluxx to explain how a plugin source maps commands, agents, hooks, and permissions across Claude Code, Cursor, Codex, and OpenCode. Include preserve, translate, degrade, and drop language.",
+          "require": [
+            "preserve",
+            "translate",
+            "degrade"
+          ]
+        },
+        "opencode": {
+          "prompt": "/translate-hosts explain how Pluxx should preserve, translate, degrade, or drop commands, agents, hooks, and permissions across the core four.",
+          "require": [
+            "preserve",
+            "translate",
+            "degrade"
+          ]
+        }
+      }
     }
   ]
 }

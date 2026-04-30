@@ -7,6 +7,10 @@ description: Import an MCP into a Pluxx project and validate the first pass.
 
 Use this skill when the task is: bring an MCP server into Pluxx, generate the initial scaffold, and prove it works.
 
+The matching command carries the argument UX:
+
+- `/pluxx:import-mcp [installed-host:name | mcp-url | stdio-command]`
+
 ## Inputs To Clarify
 
 - whether the MCP is already installed in Claude Code, Cursor, Codex, or OpenCode

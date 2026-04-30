@@ -31,18 +31,30 @@ The current plugin already covers the core lifecycle:
 
 - import an MCP
 - migrate a native plugin
-- prepare docs and website context
-- refine taxonomy
-- rewrite instructions
-- review a scaffold
-- validate a scaffold
-- build and install bundles
-- verify installed state
+- bootstrap or upgrade the Pluxx runtime
+- refine a scaffold as one coordinated product-shaping workflow
+- prove source, install, and behavior health
+- review preserve / translate / degrade / drop behavior across the core four
+- package proof into install links, screenshots, and release-facing notes
 - sync an MCP-derived scaffold
 - run a one-shot autopilot path
 - publish plugin release assets
 
 That is a strong baseline.
+
+As of the current 0.1.9 companion pass, the plugin also directly codifies the
+recent Exa and CLI lessons:
+
+- command arguments live in command frontmatter through `argument-hint` and
+  `$ARGUMENTS`
+- one-command-to-one-specialist flows use command `agent` plus `subtask: true`
+  where that native routing helps
+- skills stay mostly portable unless a specific richer Claude-only surface is
+  worth the cross-host warnings
+- hooks are modeled as portable intent with explicit trust and host-translation
+  caveats
+- behavioral smoke lives in `.pluxx/behavioral-smoke.json` and is treated as a
+  release-quality proof surface
 
 ## What The Current Plugin Still Feels Like
 
@@ -207,6 +219,9 @@ The public command surface should stay small and workflow-driven:
 - `/pluxx:migrate-plugin`
 - `/pluxx:refine-plugin`
 - `/pluxx:prove-plugin`
+- `/pluxx:behavioral-proof`
+- `/pluxx:translate-hosts`
+- `/pluxx:proof-pack`
 - `/pluxx:sync-mcp`
 - `/pluxx:publish-plugin`
 - `/pluxx:autopilot`
@@ -302,30 +317,30 @@ It should help users leave with:
 
 ## The Delta From The Current Plugin
 
-The current repo is strong on lifecycle coverage, but it still needs to grow
-in four areas:
+The current repo is strong on lifecycle coverage and now has first-class
+behavioral proof, translation review, and proof-packaging surfaces. It still
+needs to grow in the remaining polish areas:
 
-1. richer visible specialist-agent structure
-2. first-class behavioral proof workflows
-3. stronger translation-review surfaces
-4. clearer public proof/demo packaging
+1. richer public screenshots and demo assets for those workflows
+2. deeper migration-heavy behavioral examples
+3. a cleaner public proof checklist/template for plugin authors
+4. ongoing sync with the Pluxx CLI release surface
 
 ## Concrete Hit List
 
 ### P0
 
-1. Add a `behavioral-proof` workflow and command surface.
-2. Add a `translate-hosts` workflow and command surface.
-3. Add a `proof-pack` workflow and command surface.
-4. Turn the current broad workflow pack into a visible specialist graph.
-5. Add headless behavioral smoke ownership to the plugin repo release story.
+1. Keep the current workflow-first command surface validated against Pluxx CLI `>=0.1.9`.
+2. Keep `behavioral-proof`, `translate-hosts`, and `proof-pack` covered by source tests and behavioral smoke.
+3. Keep the visible specialist graph aligned with the command routes.
+4. Keep headless behavioral smoke ownership in the plugin repo release story.
 
 ### P1
 
 1. Expand screenshots so the plugin demonstrates more than import/build.
 2. Add a migration-first proof path to README/install docs.
 3. Improve copy so the plugin explains the Pluxx problem before the commands.
-4. Add explicit host-translation caveat summaries to the plugin surface.
+4. Add richer host-translation caveat summaries to public-facing proof docs.
 
 ### P2
 

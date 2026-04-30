@@ -8,6 +8,10 @@ description: Prove a scaffold structurally, install it, and check real workflow 
 Use this skill when the user wants more than source confidence. This is the
 proof journey for a plugin that should be trusted in real hosts.
 
+The matching command carries the argument UX:
+
+- `/pluxx:prove-plugin [targets optional]`
+
 This workflow intentionally combines:
 
 - deterministic validation
@@ -43,6 +47,7 @@ This workflow intentionally combines:
    - `pluxx doctor --consumer <installed-path>`
 6. If the workflow nuance matters, run behavioral proof:
    - `pluxx test --install --trust --behavioral --target <platforms...>`
+   - or route through `pluxx-behavioral-proof` when the smoke cases need design or interpretation.
 7. Return:
    - what passed structurally
    - what installed successfully
@@ -57,6 +62,7 @@ This workflow intentionally combines:
   talking about workflow behavior.
 - If one host is noisy but others are fine, avoid inflating that into a total
   plugin failure.
+- If the user is preparing a public proof surface, route next to `pluxx-proof-pack`.
 
 ## Rules
 
@@ -65,6 +71,7 @@ This workflow intentionally combines:
 - Findings come before reassurance.
 - When behavioral proof exists, treat it as first-class evidence, not an
   optional flourish.
+- Prefer Pluxx CLI `>=0.1.9` for the current proof path, especially installed-host behavioral tests and recent Claude hook fixes.
 
 ## Failure Modes To Call Out
 

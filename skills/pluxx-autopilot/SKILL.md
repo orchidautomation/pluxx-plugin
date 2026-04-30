@@ -7,6 +7,10 @@ description: Run the one-shot Pluxx import, refinement, and verification path.
 
 Use this skill when the user wants the one-shot path instead of a manually staged import and refinement flow.
 
+The matching command carries the argument UX:
+
+- `/pluxx:autopilot [mcp-source | installed-host:name | existing project context]`
+
 ## Inputs To Clarify
 
 - source type: remote MCP, local stdio command, or existing working project
@@ -14,6 +18,7 @@ Use this skill when the user wants the one-shot path instead of a manually stage
 - whether the user is optimizing for speed, debuggability, or polish
 - whether auth/runtime details are already known
 - whether the user wants only a first-pass scaffold or something close to shareable
+- whether the plugin should intentionally use commands, arguments, specialist agents/subagents, hooks, or behavioral proof based on the product shape
 
 ## Workflow
 
@@ -40,6 +45,7 @@ Use this skill when the user wants the one-shot path instead of a manually stage
    - which agent passes ran
    - which verification checks ran
    - what still needs human follow-up
+7. If the output is intended to be a polished companion plugin, verify that autopilot did not flatten rich workflows into only generic skills.
 
 ## Decision Points
 
@@ -48,6 +54,7 @@ Use this skill when the user wants the one-shot path instead of a manually stage
 - Use `thorough` when the workflow is subtle or likely to become a public proof surface.
 - Use staged import rather than autopilot when the only source is an installed-host selector, because `pluxx autopilot` currently takes explicit `--from-mcp` sources while `init` supports `--from-installed-mcp`.
 - If the user is learning or debugging, prefer the staged lifecycle once autopilot stops being transparent enough.
+- If autopilot produces a credible baseline but misses Exa-style shape, route to `pluxx-refine-plugin` with explicit focus on command arguments, subagents, hooks, and proof cases.
 
 ## Rules
 
