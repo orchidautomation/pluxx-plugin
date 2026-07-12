@@ -1,0 +1,20 @@
+{
+  "skill_name": "pluxx-verify-plugin",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Prove this plugin in Codex. I need to know separately whether the source is valid, the plugin is installed, and a real workflow responds.",
+      "expected_output": "Separate source, build, installed-state, and behavioral evidence with no stronger claim than the checks support."
+    },
+    {
+      "id": 2,
+      "prompt": "pluxx test passes but Cursor still cannot see the plugin. Diagnose it without rebuilding random files by hand.",
+      "expected_output": "Installed-state verification, consumer diagnosis, targeted repair guidance, and reload instructions only after the bundle is verified."
+    },
+    {
+      "id": 3,
+      "prompt": "The remote MCP fails intermittently during behavioral smoke. Record one run and show how to replay it deterministically.",
+      "expected_output": "A bounded MCP proxy record/replay workflow and a clear distinction between protocol failure and plugin instruction quality."
+    }
+  ]
+}

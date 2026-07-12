@@ -1,96 +1,40 @@
 ---
 name: pluxx-refine-plugin
-description: Take a valid scaffold and turn it into a product-shaped, host-honest plugin.
+description: Use this skill when a valid Pluxx scaffold is generic, tool-shaped, fragmented, or unclear. Apply product context, improve workflow taxonomy, rewrite shared instructions, or run a findings-first scaffold review.
 ---
 
-# Refine Plugin
+# Refine A Pluxx Plugin
 
-Use this skill when the first scaffold exists, but it still feels too lexical,
-too generic, or too weak to ship as a serious plugin source.
-
-This is the refinement journey. It intentionally bundles several internal
-stages that advanced operators may think of separately:
-
-- context preparation
-- taxonomy shaping
-- instruction rewriting
-- host translation review
-- findings-first scaffold review
-- argument, command, agent/subagent, hook, permission, and proof-shape review based on current Pluxx examples
-
-The matching command carries the argument UX:
-
-- `/pluxx:refine-plugin [context-or-focus optional]`
-
-## Inputs To Clarify
-
-- whether the source is a new import, a migrated plugin, or a synced scaffold
-- whether the main weakness is product framing, workflow grouping, host nuance,
-  or overall quality
-- whether the user wants the lightest credible pass or a stronger polish pass
-- whether supporting docs, website context, or local product notes are available
+Improve semantic quality only after the deterministic scaffold is healthy.
 
 ## Workflow
 
-1. Identify the real refinement target:
+1. Run `pluxx doctor` and `pluxx lint`. Fix structural errors before semantic work.
+2. Identify the smallest useful refinement:
    - missing product context
-   - weak taxonomy
-   - generic instructions
-   - host-translation confusion
-   - broad scaffold quality concerns
-2. If context is weak, prepare it first:
-   - `pluxx agent prepare --website ... --docs ...`
-3. Use specialist agents when the host supports them:
-   - `taxonomy-shaper`
-   - `instruction-editor`
-   - `host-translator`
-   - `behavioral-tester` when proof cases are part of the product shape
-4. Tighten the scaffold as one coordinated refinement pass rather than as
-   several disconnected edits.
-5. Re-run the smallest useful structural checks:
-   - `pluxx lint`
-   - `pluxx eval`
-   - `pluxx test`
-6. Return:
-   - what changed
-   - what stayed intentionally unchanged
-   - what still needs proof rather than more copywriting
+   - tool-per-skill or fragmented taxonomy
+   - generic or inaccurate shared instructions
+   - weak examples, setup boundaries, or host framing
+   - findings-first pre-ship review
+3. Use `taxonomy-shaper`, `instruction-editor`, or `host-translator` for the matching bounded pass when the host supports specialists.
+4. Prepare context when needed with `pluxx agent prepare --website <url> --docs <url>`.
+5. Inspect prompt packs with `pluxx agent prompt <taxonomy|instructions|review>` when the user wants control before execution.
+6. Run only the required passes:
+   - `pluxx agent run taxonomy --runner <runner>`
+   - `pluxx agent run instructions --runner <runner>`
+   - `pluxx agent run review --runner <runner> --no-verify`
+7. Edit source skills and `INSTRUCTIONS.md`; never fix generated `dist/` directly.
+8. Re-run `pluxx lint`, `pluxx eval`, and `pluxx test` after the refinement.
 
-## Decision Points
+## Quality Rules
 
-- If the scaffold is structurally unhealthy, do not over-refine it; route next
-  to the proof path.
-- If the user mainly wants preserve / translate / degrade / drop truth, lean
-  harder on the host-translation review inside this workflow.
-- If the main issue is install/runtime visibility, stop refining and route next
-  to `pluxx-prove-plugin`.
-- If the workflow is repeated and parameterized, promote it into a command with `argument-hint` and a realistic `$ARGUMENTS` body instead of leaving it buried in generic prose.
-- If one command maps cleanly to one specialist, use command `agent` plus `subtask: true` so OpenCode and other subagent-aware hosts get stronger routing.
-- If a skill needs Claude-style argument UX, add `arguments` frontmatter while keeping non-Claude targets honest about degradation.
-- If the workflow needs setup checks, auth warnings, or release safeguards, model hooks intentionally and document trust implications.
-
-## Rules
-
-- Keep the visible user job simple: “make this plugin feel real,” not “pick one
-  of five adjacent micro-commands.”
-- Group recommendations by user job and host reality, not by file names alone.
-- Do not pretend host parity where translation or degradation is the honest
-  answer.
-- If the scaffold already reads well, do not churn wording just to look busy.
-- Do not stop at a skill-only scaffold when the product clearly wants commands, arguments, specialist agents, hooks, or behavioral proof.
-
-## Failure Modes To Call Out
-
-- context is too weak to support credible refinement
-- taxonomy is product-shaped in source but still weak in a target host
-- instructions improved, but the real problem is install/runtime proof
-- scaffold is readable now, but still not proven
+- Group around user outcomes, not raw MCP tool names.
+- Keep skill descriptions intent-first and specific enough to avoid adjacent workflow collisions.
+- Preserve managed/custom ownership boundaries during rewrites.
+- Prefer one coherent workflow over several micro-skills that must always load together.
+- Keep `SKILL.md` lean; move conditional detail into directly linked `references/` files.
+- Leave deterministic commands and fragile checks in scripts rather than re-generating them as prose.
 
 ## Output
 
-- Explain the refinement pass in workflow terms, not as a file-by-file changelog.
-- Call out the core-four translation story when it matters.
-- Make the next step obvious:
-  - prove it
-  - sync later
-  - or publish
+Explain the product weakness addressed, source changes made, validation result, intentionally unchanged surfaces, and whether the next step is verification or publishing.

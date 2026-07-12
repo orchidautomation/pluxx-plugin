@@ -1,4 +1,4 @@
 interface:
   display_name: "Refine Plugin"
-  short_description: "Turn a valid scaffold into a product-shaped, host-honest plugin"
-  default_prompt: "Use Pluxx to refine this scaffold into a product-shaped plugin, then tell me what changed and what still needs proof."
+  short_description: "Turn a valid scaffold into a product-shaped plugin"
+  default_prompt: "Use $pluxx-refine-plugin to refine this valid scaffold's workflows and instructions without hand-editing generated output."

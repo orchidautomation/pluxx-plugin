@@ -1,0 +1,20 @@
+{
+  "skill_name": "pluxx-refine-plugin",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This scaffold passes lint, but it generated 24 skills named after individual MCP tools. Make it feel like a real product workflow without changing dist by hand.",
+      "expected_output": "A taxonomy-focused refinement from source, grounded in product context, followed by lint, eval, and test results."
+    },
+    {
+      "id": 2,
+      "prompt": "Rewrite the generated part of INSTRUCTIONS.md using https://docs.example.com, but keep our custom operator notes intact.",
+      "expected_output": "Context preparation, an instructions refinement that preserves custom ownership boundaries, and post-change validation."
+    },
+    {
+      "id": 3,
+      "prompt": "Review this valid Pluxx scaffold before we ship it. Findings first; do not churn copy that is already good.",
+      "expected_output": "Prioritized semantic findings covering workflow shape, setup, examples, and host truth, with no blind rewrite."
+    }
+  ]
+}

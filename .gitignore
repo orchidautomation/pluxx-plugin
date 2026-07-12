@@ -9,3 +9,6 @@ release/*
 !release/install-all.sh
 node_modules/
 *.swp
+
+# Agent scratch artifacts
+.agent-artifacts/

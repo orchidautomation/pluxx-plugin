@@ -13,8 +13,8 @@ fi
 
 if command -v npx >/dev/null 2>&1; then
   echo "Pluxx runtime is not installed globally. The plugin can fall back to npx."
-  echo "If you want the smoother operator path, run /pluxx:bootstrap-runtime."
+  echo "Ask the Pluxx guide to compare the global-install and npx paths before continuing."
   exit 0
 fi
 
-echo "Pluxx runtime is missing. Install Node first, then run /pluxx:bootstrap-runtime." >&2
+echo "Pluxx runtime is missing. Install Node 18 or newer, then ask the Pluxx guide for the safest CLI setup path." >&2

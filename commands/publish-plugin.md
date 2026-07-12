@@ -1,19 +1,10 @@
 ---
-description: Package the current plugin for release distribution
-argument-hint: "[release options optional]"
+description: Preview, package, or publish a verified Pluxx plugin release
+argument-hint: "[dry-run | github-release | npm | version]"
 ---
 
-Use the Pluxx publish workflow.
+Use the `pluxx-publish-plugin` skill.
 
 Arguments: $ARGUMENTS
 
-## What To Do
-
-1. Use the `pluxx-publish-plugin` skill.
-2. Validate that the current project is healthy enough to publish.
-3. Run `pluxx publish` with the requested release options when appropriate.
-4. Summarize the release artifacts and install scripts that were produced.
-5. If no tagged release exists yet, explain that raw `main` installer links are the shareable fallback until the GitHub release lands.
-6. Call out anything that still blocks an actual release.
-
-Return what was published, what artifacts were generated, and any remaining release caveats.
+Verify the project, inspect repository and version state, and show the exact dry-run plan first. Package only evidence-backed proof claims. Upload only after explicit approval, then report release artifacts, install paths, and remaining caveats.

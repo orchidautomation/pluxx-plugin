@@ -1,0 +1,18 @@
+[
+  {"query":"prepare the GitHub release bundles and installers for this Pluxx plugin","should_trigger":true},
+  {"query":"dry-run npm and GitHub publishing for version 0.4.0","should_trigger":true},
+  {"query":"package screenshots, checksums, proof notes, and public install links","should_trigger":true},
+  {"query":"why does releases/latest/download fail before we create a tag?","should_trigger":true},
+  {"query":"show me exactly what version 1.0.0 would upload to orchidautomation/acme-plugin, but don't mutate GitHub","should_trigger":true},
+  {"query":"publish the OpenCode npm wrapper under next and the core-four archives as a matching GitHub Release after approval","should_trigger":true},
+  {"query":"we only proved the build; prepare honest release notes and screenshots that do not claim installed behavior","should_trigger":true},
+  {"query":"turn the verified dist outputs into versioned/latest archives, installers, a manifest, and SHA256 checksums","should_trigger":true},
+  {"query":"build and locally install this plugin in Codex","should_trigger":false},
+  {"query":"make this scaffold's workflow skills less generic","should_trigger":false},
+  {"query":"sync the source after its MCP changed","should_trigger":false},
+  {"query":"compare command support across the core four","should_trigger":false},
+  {"query":"the GitHub release is already live; diagnose why Codex cannot see the local install","should_trigger":false},
+  {"query":"create a blank Pluxx plugin named sales-ops","should_trigger":false},
+  {"query":"check whether the global Pluxx CLI is current","should_trigger":false},
+  {"query":"review taxonomy and rewrite INSTRUCTIONS.md before any release work","should_trigger":false}
+]

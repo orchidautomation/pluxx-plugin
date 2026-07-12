@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pluxx Guide"
+  short_description: "Choose, set up, or troubleshoot the Pluxx CLI"
+  default_prompt: "Use $pluxx-guide to diagnose my current state and recommend the safest next command."

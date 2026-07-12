@@ -1,0 +1,20 @@
+{
+  "skill_name": "pluxx-create-plugin",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The Exa MCP already works in Codex as `exa`. Create a Pluxx project for the core four without asking me to paste its configuration again.",
+      "expected_output": "Discovery of the installed Codex MCP, a host-qualified import command, no literal credential exposure, and deterministic post-import checks."
+    },
+    {
+      "id": 2,
+      "prompt": "Migrate the Claude Code plugin at ./legacy/acme into Pluxx and tell me which host-specific surfaces cannot translate cleanly.",
+      "expected_output": "A migration-first workflow that preserves the source plugin, validates the new project, and reports preserve/translate/degrade/drop caveats."
+    },
+    {
+      "id": 3,
+      "prompt": "Use the fastest Pluxx path to turn https://example.com/mcp into a Codex plugin and install it locally.",
+      "expected_output": "A standard autopilot command with explicit Codex install target, trust boundary, validation outcome, and host reload guidance."
+    }
+  ]
+}

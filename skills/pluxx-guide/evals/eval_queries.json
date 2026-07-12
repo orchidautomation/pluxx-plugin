@@ -1,0 +1,18 @@
+[
+  {"query":"pluxx is acting weird and i don't know what command comes next","should_trigger":true},
+  {"query":"check whether my global @orchid-labs/pluxx install is current","should_trigger":true},
+  {"query":"pluxx is missing from my command path but npx still works; what should I do?","should_trigger":true},
+  {"query":"explain the difference between Pluxx doctor, test, and verify-install","should_trigger":true},
+  {"query":"im new to pluxx—what's the normal lifecycle from source to a host plugin?","should_trigger":true},
+  {"query":"which command should I use if I have an MCP URL versus an old Cursor plugin? don't run either yet","should_trigger":true},
+  {"query":"Node 24 is installed on this Mac but pluxx: command not found. Give me the temporary and persistent setup options","should_trigger":true},
+  {"query":"before we touch ~/work/acme-plugin, orient me to which Pluxx workflows write files, install locally, or publish externally","should_trigger":true},
+  {"query":"use Pluxx to turn this installed MCP into a new plugin project","should_trigger":false},
+  {"query":"rewrite the taxonomy and instructions in this existing Pluxx scaffold","should_trigger":false},
+  {"query":"publish version 1.4.0 of this Pluxx plugin to GitHub Releases","should_trigger":false},
+  {"query":"debug this unrelated webpack plugin loader","should_trigger":false},
+  {"query":"my generated Cursor bundle exists but the host still cannot see it","should_trigger":false},
+  {"query":"preview a sync because the upstream MCP added two tools","should_trigger":false},
+  {"query":"classify this plugin's commands and agents across the core four","should_trigger":false},
+  {"query":"run lint, build, install, and real behavior proof for the current Codex target","should_trigger":false}
+]

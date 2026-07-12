@@ -1,0 +1,18 @@
+[
+  {"query":"the upstream MCP changed; preview a safe refresh of this Pluxx scaffold","should_trigger":true},
+  {"query":"sync this existing MCP-derived project and preserve our notes","should_trigger":true},
+  {"query":"the local stdio entrypoint moved and this Pluxx project needs updating","should_trigger":true},
+  {"query":"explain what pluxx sync would add, remove, and preserve before applying it","should_trigger":true},
+  {"query":"the vendor added search and export tools yesterday—refresh our existing project, but show the JSON diff first","should_trigger":true},
+  {"query":"sync from the new SSE endpoint and flag any custom sections stranded by removed generated skills","should_trigger":true},
+  {"query":"our MCP docs and runtime command changed; update the maintained Pluxx source and tell me which semantic passes should rerun","should_trigger":true},
+  {"query":"pluxx sync wants to delete a managed wrapper that contains handwritten operator notes. preserve the work and explain the conflict","should_trigger":true},
+  {"query":"import this MCP into a new Pluxx repo","should_trigger":false},
+  {"query":"rewrite the generic skills in this unchanged scaffold","should_trigger":false},
+  {"query":"run full install and behavioral proof across the core four","should_trigger":false},
+  {"query":"prepare a GitHub release for this plugin","should_trigger":false},
+  {"query":"upgrade the global Pluxx CLI and explain npx fallback","should_trigger":false},
+  {"query":"migrate an existing Claude Code plugin from ./legacy","should_trigger":false},
+  {"query":"audit preserve and degrade behavior for commands and agents","should_trigger":false},
+  {"query":"the installed Codex link is stale even though source test passes","should_trigger":false}
+]

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verify Plugin"
+  short_description: "Validate, build, install, and prove a Pluxx plugin"
+  default_prompt: "Use $pluxx-verify-plugin to prove this plugin at the requested layer and separate source, install, and behavior evidence."

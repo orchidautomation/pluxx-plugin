@@ -1,0 +1,18 @@
+[
+  {"query":"what survives when this Pluxx plugin compiles to the core four?","should_trigger":true},
+  {"query":"classify commands, agents, hooks, and permissions as preserve translate degrade or drop","should_trigger":true},
+  {"query":"why are commands weaker in the generated Codex plugin than in Claude Code?","should_trigger":true},
+  {"query":"audit only Cursor and OpenCode runtime translation for this source","should_trigger":true},
+  {"query":"our product team says every feature is supported everywhere—check that claim against the generated host surfaces","should_trigger":true},
+  {"query":"compare how the same specialist agent and session hook land in Claude, Cursor, Codex, and OpenCode","should_trigger":true},
+  {"query":"for this internal plugin, review only permissions and distribution, then suggest a more portable source shape","should_trigger":true},
+  {"query":"commands vanish in Codex and agent fields change in Cursor; explain the honest compiler buckets without calling them identical","should_trigger":true},
+  {"query":"build and install this plugin into all four hosts","should_trigger":false},
+  {"query":"make the taxonomy less fragmented","should_trigger":false},
+  {"query":"sync the project after its MCP changed","should_trigger":false},
+  {"query":"publish the generated bundles and installers","should_trigger":false},
+  {"query":"show me whether my Pluxx CLI version is current","should_trigger":false},
+  {"query":"create a project from the MCP already installed in Cursor","should_trigger":false},
+  {"query":"doctor and verify this broken local Codex install","should_trigger":false},
+  {"query":"rewrite only the shared instructions using the product website","should_trigger":false}
+]

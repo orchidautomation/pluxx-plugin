@@ -5,13 +5,8 @@ agent: host-translator
 subtask: true
 ---
 
-Use the Pluxx host translation workflow.
+Use the `pluxx-translate-hosts` skill.
 
 Arguments: $ARGUMENTS
 
-## What To Do
-
-1. Use the `pluxx-translate-hosts` skill.
-2. Treat the argument as a surface or target focus when present.
-3. Review skills, commands, agents, hooks, permissions, runtime, and distribution only as deeply as needed for the user's goal.
-4. Return the preserve/translate/degrade/drop truth and the highest-value source-shape fix.
+Scope the review to the requested hosts or compiler buckets. Ground conclusions in current lint/build output, return a preserve/translate/degrade/drop matrix, and recommend the highest-value source-shape fix.
