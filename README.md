@@ -99,7 +99,7 @@ Audit host translation:
 
 Prepare a release without publishing:
 
-> Dry-run a GitHub release for version 0.2.0, including installers and checksums, but do not upload anything.
+> Dry-run a GitHub release for version 0.2.1, including installers and checksums, but do not upload anything.
 
 ## CLI Decision Tree
 
@@ -176,7 +176,7 @@ npx --yes skills-ref validate skills/<skill-name>
 Preview release packaging without uploading:
 
 ```bash
-pluxx publish --github-release --version 0.2.0 --allow-dirty --dry-run
+pluxx publish --github-release --version 0.2.1 --allow-dirty --dry-run
 ```
 
 Do not hand-edit `dist/`; it is regenerated from source.

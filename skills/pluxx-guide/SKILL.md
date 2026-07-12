@@ -21,7 +21,7 @@ Act as the front door for Pluxx.
    - compare with `npm view @orchid-labs/pluxx version` when freshness matters
    - use `pluxx upgrade` for a stale global install
    - fall back to `npx @orchid-labs/pluxx` when no global CLI is available
-3. Read [references/command-map.md](references/command-map.md) when the user needs command selection or a full lifecycle explanation.
+3. Read [references/command-map.md](references/command-map.md) when the user needs command selection or a full lifecycle explanation. Read [references/runtime-troubleshooting.md](references/runtime-troubleshooting.md) when installation, PATH, version, upgrade, or help behavior is unclear.
 4. Route to the narrow skill when the user’s job is clear. Stay here for runtime setup, broad orientation, and failures that do not yet identify a plugin project or proof layer.
 5. Prefer read-only diagnosis or `--dry-run` before any command that writes, installs, or publishes.
 

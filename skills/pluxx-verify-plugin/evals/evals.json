@@ -4,12 +4,12 @@
     {
       "id": 1,
       "prompt": "Prove this plugin in Codex. I need to know separately whether the source is valid, the plugin is installed, and a real workflow responds.",
-      "expected_output": "Separate source, build, installed-state, and behavioral evidence with no stronger claim than the checks support."
+      "expected_output": "A target-specific proof table separating source, build/consumer, installed-state, and behavioral evidence; skipped and not-run states are explicit; claims do not exceed the completed checks."
     },
     {
       "id": 2,
       "prompt": "pluxx test passes but Cursor still cannot see the plugin. Diagnose it without rebuilding random files by hand.",
-      "expected_output": "Installed-state verification, consumer diagnosis, targeted repair guidance, and reload instructions only after the bundle is verified."
+      "expected_output": "The first failed proof layer, installed-state verification, consumer-path diagnosis, targeted stale-path, version, or cache repair, and reload instructions only after current bundle and companion state are verified."
     },
     {
       "id": 3,

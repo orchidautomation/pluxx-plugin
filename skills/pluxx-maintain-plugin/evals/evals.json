@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "The MCP behind this existing Pluxx project added three tools. Preview a safe sync, preserve our custom notes, then explain whether the taxonomy needs another pass.",
-      "expected_output": "A JSON dry-run review before sync, explicit preserved and changed content, deterministic checks, and a refinement recommendation based on semantic impact."
+      "expected_output": "A JSON dry-run review before sync that interprets added, updated, removed, preserved, renamed, and warning entries; reports custom-content and persisted-taxonomy impact; then applies deterministic checks and recommends refinement only when meaning changed."
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
     {
       "id": 3,
       "prompt": "Sync says a generated skill was removed, but that file still contains our operator notes. What should happen?",
-      "expected_output": "A preservation-first explanation that identifies stranded custom content and avoids silent deletion."
+      "expected_output": "A preservation-first explanation that identifies stranded custom content, describes Pluxx preservation and rename behavior, requires an explicit keep-relocate-retire decision, and avoids silent deletion or edits in dist."
     }
   ]
 }

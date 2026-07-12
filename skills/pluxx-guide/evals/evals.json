@@ -4,12 +4,12 @@
     {
       "id": 1,
       "prompt": "I installed Pluxx a while ago and I am not sure whether it is current. Check it and tell me the safest next command without changing this repo.",
-      "expected_output": "A read-only local and npm version comparison, followed by either no action or the exact upgrade command with its effect explained."
+      "expected_output": "A read-only executable-path, local-version, and npm-version comparison; detection of competing installs when indicated; then either no action or the exact upgrade command with its write effect and confirmation step explained."
     },
     {
       "id": 2,
       "prompt": "The pluxx command is not on my command path, but Node and npx are available. Tell me the safe temporary and persistent setup choices.",
-      "expected_output": "A no-install npx fallback, a global installation option, the version checks for each, and no plugin-project diagnosis."
+      "expected_output": "A no-install npx fallback, a distinct global installation option, executable and version checks for each lane, side-effect labels, and no premature plugin-project diagnosis."
     },
     {
       "id": 3,

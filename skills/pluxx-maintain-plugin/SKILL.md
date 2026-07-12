@@ -14,16 +14,18 @@ Refresh generated source without losing user-owned work.
 3. Preview first:
    - `pluxx sync --dry-run --json`
    - use `--from-mcp <source>` only when the canonical source changed intentionally
-4. Review added, updated, removed, preserved, and warning entries before applying.
-5. Run `pluxx sync` after the preview is understood.
-6. Inspect mixed-ownership Markdown boundaries and any custom notes attached to removed generated surfaces.
-7. Run `pluxx doctor`, `pluxx lint`, `pluxx eval`, and `pluxx test`.
-8. Route changed product meaning, tool grouping, or setup behavior to `pluxx-refine-plugin`.
+4. Read [references/sync-safety.md](references/sync-safety.md) before applying sync, or whenever the preview contains removed, preserved, renamed, or warning entries.
+5. Review added, updated, removed, preserved, renamed, and warning entries before applying.
+6. Run `pluxx sync` after the preview is understood.
+7. Inspect mixed-ownership Markdown boundaries and any custom notes attached to removed generated surfaces.
+8. Run `pluxx validate`, `pluxx doctor`, `pluxx lint`, `pluxx eval`, and `pluxx test`; run `skills-ref validate` for every source skill.
+9. Route changed product meaning, tool grouping, or setup behavior to `pluxx-refine-plugin`.
 
 ## Drift Rules
 
 - Never delete preserved custom content silently.
 - Call out removed MCP tools that strand a workflow or custom note.
+- Treat persisted taxonomy and invalidated agent packs as explicit review work, not incidental generated noise.
 - Keep source fixes in the root project and rebuild `dist/` through Pluxx.
 - Treat a changed local stdio command or payload path as a runtime change that needs install verification.
 
