@@ -19,7 +19,7 @@ Describe host truth without promising fake parity.
    - drop: no truthful target surface exists
 5. Review only the buckets the user needs: instructions, skills, commands, agents, hooks, permissions, runtime, and distribution.
 6. Recommend a source-shape fix when moving intent into skills, instructions, agents, scripts, or runtime configuration improves portability.
-7. Rebuild after any source change; never patch target output as the durable fix.
+7. After any source change, run `pluxx validate`, `skills-ref validate` for changed skills, and rebuild; never patch target output as the durable fix.
 
 ## Output
 

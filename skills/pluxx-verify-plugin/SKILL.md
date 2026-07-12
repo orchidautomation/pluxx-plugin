@@ -11,18 +11,20 @@ Prove only what the completed checks support.
 
 1. Identify the requested proof layer and target hosts.
 2. Read [references/proof-ladder.md](references/proof-ladder.md) when the user asks whether a plugin is “working,” when installed state is involved, or when a lower check passes but the host still fails.
-3. Use `install-verifier` for host visibility or `behavioral-tester` for real example-query proof when the host supports specialists.
-4. Start with source proof:
+3. Read [references/failure-diagnosis.md](references/failure-diagnosis.md) when a check fails, a host cannot see a passing build, Codex companion state is stale, or behavioral results are inconsistent.
+4. Use `install-verifier` for host visibility or `behavioral-tester` for real example-query proof when the host supports specialists.
+5. Start with source proof:
    - `pluxx validate`
    - `pluxx doctor --json`
    - `pluxx lint`
+   - `skills-ref validate skills/<name>` for every source skill in scope
    - `pluxx eval`
-5. Run `pluxx test --target <hosts...>` for deterministic build and smoke proof.
-6. Install only when requested. Review hook commands first, then use `pluxx test --install --trust --target <hosts...>` or the narrower `pluxx install` flow.
-7. Run `pluxx verify-install --target <host>` and follow its specific repair guidance before suggesting a host reload.
-8. For real workflow proof, define or inspect `.pluxx/behavioral-smoke.json`, then run `pluxx test --install --trust --behavioral --target <hosts...>`.
-9. When built or installed output still looks wrong, run `pluxx doctor --consumer <path>`.
-10. When MCP behavior is nondeterministic, use `pluxx mcp proxy --record` and `--replay` to isolate the protocol path.
+6. Run `pluxx test --target <hosts...>` for deterministic build and smoke proof.
+7. Install only when requested. Review hook commands first, then use `pluxx test --install --trust --target <hosts...>` or the narrower `pluxx install` flow.
+8. Run `pluxx verify-install --target <host>` and follow its specific repair guidance before suggesting a host reload.
+9. For real workflow proof, define or inspect `.pluxx/behavioral-smoke.json`, then run `pluxx test --install --trust --behavioral --target <hosts...>`.
+10. When built or installed output still looks wrong, run `pluxx doctor --consumer <path>`.
+11. When MCP behavior is nondeterministic, record with `pluxx mcp proxy --from-mcp <source> --record <tape.json>` and replay with `pluxx mcp proxy --replay <tape.json>` to isolate the protocol path.
 
 ## Evidence Rules
 

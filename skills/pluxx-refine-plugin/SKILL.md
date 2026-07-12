@@ -16,15 +16,16 @@ Improve semantic quality only after the deterministic scaffold is healthy.
    - generic or inaccurate shared instructions
    - weak examples, setup boundaries, or host framing
    - findings-first pre-ship review
-3. Use `taxonomy-shaper`, `instruction-editor`, or `host-translator` for the matching bounded pass when the host supports specialists.
-4. Prepare context when needed with `pluxx agent prepare --website <url> --docs <url>`.
-5. Inspect prompt packs with `pluxx agent prompt <taxonomy|instructions|review>` when the user wants control before execution.
-6. Run only the required passes:
+3. Read [references/refinement-playbook.md](references/refinement-playbook.md) when pass selection, taxonomy grouping, source ownership, or stop conditions are unclear.
+4. Use `taxonomy-shaper`, `instruction-editor`, or `host-translator` for the matching bounded pass when the host supports specialists.
+5. Prepare context when needed with `pluxx agent prepare --website <url> --docs <url>`.
+6. Inspect prompt packs with `pluxx agent prompt <taxonomy|instructions|review>` when the user wants control before execution.
+7. Run only the required passes:
    - `pluxx agent run taxonomy --runner <runner>`
    - `pluxx agent run instructions --runner <runner>`
    - `pluxx agent run review --runner <runner> --no-verify`
-7. Edit source skills and `INSTRUCTIONS.md`; never fix generated `dist/` directly.
-8. Re-run `pluxx lint`, `pluxx eval`, and `pluxx test` after the refinement.
+8. Edit source skills and `INSTRUCTIONS.md`; never fix generated `dist/` directly.
+9. Re-run `pluxx validate`, `pluxx lint`, `skills-ref validate` for changed source skills, `pluxx eval`, and `pluxx test` after the refinement.
 
 ## Quality Rules
 
@@ -37,4 +38,4 @@ Improve semantic quality only after the deterministic scaffold is healthy.
 
 ## Output
 
-Explain the product weakness addressed, source changes made, validation result, intentionally unchanged surfaces, and whether the next step is verification or publishing.
+Explain the product weakness addressed, source changes made, validation result, intentionally unchanged surfaces, and the next verification step.

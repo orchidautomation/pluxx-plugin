@@ -3,8 +3,8 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Prepare a dry-run GitHub release plan for version 0.2.0. Include installers and checksums, but do not upload anything.",
-      "expected_output": "Verified source state, an exact non-uploading publish command, planned release assets, and explicit confirmation that no external mutation occurred."
+      "prompt": "Prepare a dry-run GitHub release plan for version 0.2.1. Include installers and checksums, but do not upload anything.",
+      "expected_output": "Verified source and shipping-commit state, a decision between local CLI and tag-triggered CI ownership, an exact non-uploading publish command, complete artifact inventory, recovery blockers, and confirmation that no external mutation occurred."
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
     {
       "id": 3,
       "prompt": "Publish version 1.0.0 to npm under next and create the matching GitHub release after showing me the plan.",
-      "expected_output": "A combined dry-run with version and npm tag, a request for explicit approval, then upload only if that approval is supplied."
+      "expected_output": "A combined dry-run with version, npm tag, channel ordering and failure policy, access and existing-tag checks, complete artifact inventory, and a request for explicit approval before either upload."
     }
   ]
 }

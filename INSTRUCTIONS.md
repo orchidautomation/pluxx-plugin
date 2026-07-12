@@ -91,7 +91,7 @@ Add real workflow proof only when needed:
 pluxx test --install --trust --behavioral --target codex
 ```
 
-When output remains unhealthy, use `pluxx doctor --consumer <path>`. For nondeterministic MCP failures, use `pluxx mcp proxy --record` and `--replay`.
+When output remains unhealthy, use `pluxx doctor --consumer <path>`. For nondeterministic MCP failures, record with `pluxx mcp proxy --from-mcp <source> --record <tape.json>` and replay with `pluxx mcp proxy --replay <tape.json>`.
 
 Never call a build installed, an install behaviorally proven, or a translated surface fully preserved.
 

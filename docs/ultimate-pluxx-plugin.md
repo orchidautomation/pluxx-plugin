@@ -1,6 +1,6 @@
 # Ultimate Pluxx Plugin
 
-This document defines the current north star for the first-party Pluxx plugin as of version `0.2.0`.
+This document defines the current north star for the first-party Pluxx plugin as of version `0.2.1`.
 
 ## Product Promise
 

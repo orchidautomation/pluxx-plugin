@@ -20,7 +20,7 @@ Create the smallest deterministic source project before semantic refinement.
 4. Collect only the missing project choices: name, display name, source, target hosts, credential scheme, and whether to use the manual or one-shot path.
 5. Prefer `--dry-run` when source detection, target selection, or generated file impact is uncertain.
 6. Use workflow grouping and the core four unless the user asks for a narrower target set.
-7. Run `pluxx doctor`, `pluxx lint`, and `pluxx test` after the source scaffold exists.
+7. Run `pluxx validate`, `pluxx doctor`, `pluxx lint`, `skills-ref validate` for every source skill, and `pluxx test` after the source scaffold exists.
 8. Route a valid but generic scaffold to `pluxx-refine-plugin`; route failed validation to `pluxx-verify-plugin`.
 
 ## One-Shot Path

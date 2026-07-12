@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "Audit this plugin's commands, agents, hooks, and permissions across the core four. I want preserve, translate, degrade, or drop—not a generic supported/unsupported answer.",
-      "expected_output": "A host-by-bucket matrix grounded in current lint/build output, with honest classifications and a source-shape recommendation."
+      "expected_output": "A host-by-bucket matrix grounded in source, lint/build output, and inspected native target files, with honest classifications, cited evidence surfaces, and the smallest source-shape recommendation."
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
     {
       "id": 3,
       "prompt": "Compare only the agent and permission surfaces for Cursor and Codex; do not rebuild unrelated targets.",
-      "expected_output": "A scoped two-host review of translated agent registration and permission enforcement with no broad parity claim."
+      "expected_output": "A scoped two-host review that inspects native agent and permission evidence, distinguishes companion registration from bundled skills, explains actual enforcement boundaries, and makes no broad parity claim."
     }
   ]
 }
