@@ -1,106 +1,66 @@
 {
   "cases": [
     {
-      "name": "bootstrap-runtime",
+      "name": "guide-runtime-and-routing",
       "targets": {
-        "claude-code": {
-          "prompt": "/pluxx:bootstrap-runtime explain how to install or upgrade the Pluxx CLI on this machine. Return the safest next command and when to use npx instead of a global install.",
-          "require": [
-            "pluxx upgrade",
-            "npx @orchid-labs/pluxx"
-          ]
-        },
-        "cursor": {
-          "prompt": "/pluxx-bootstrap-runtime explain how to install or upgrade the Pluxx CLI on this machine. Return the safest next command and when to use npx instead of a global install.",
-          "require": [
-            "pluxx upgrade",
-            "npx @orchid-labs/pluxx"
-          ]
-        },
-        "codex": {
-          "prompt": "Use Pluxx to explain how to install or upgrade the Pluxx CLI on this machine. Return the safest next command and when to use npx instead of a global install.",
-          "require": [
-            "pluxx upgrade",
-            "npx @orchid-labs/pluxx"
-          ]
-        },
-        "opencode": {
-          "prompt": "/bootstrap-runtime explain how to install or upgrade the Pluxx CLI on this machine. Return the safest next command and when to use npx instead of a global install.",
-          "require": [
-            "pluxx upgrade",
-            "npx @orchid-labs/pluxx"
-          ]
-        }
+        "claude-code": {"prompt": "Use Pluxx to check whether the CLI is current and explain which workflow should handle a valid but generic scaffold. Do not change anything.", "require": ["pluxx --version", "npm view @orchid-labs/pluxx version", "pluxx-refine-plugin"]},
+        "cursor": {"prompt": "Use Pluxx to check whether the CLI is current and explain which workflow should handle a valid but generic scaffold. Do not change anything.", "require": ["pluxx --version", "npm view @orchid-labs/pluxx version", "pluxx-refine-plugin"]},
+        "codex": {"prompt": "Use Pluxx to check whether the CLI is current and explain which workflow should handle a valid but generic scaffold. Do not change anything.", "require": ["pluxx --version", "npm view @orchid-labs/pluxx version", "pluxx-refine-plugin"]},
+        "opencode": {"prompt": "Use Pluxx to check whether the CLI is current and explain which workflow should handle a valid but generic scaffold. Do not change anything.", "require": ["pluxx --version", "npm view @orchid-labs/pluxx version", "pluxx-refine-plugin"]}
       }
     },
     {
-      "name": "behavioral-proof",
+      "name": "create-from-installed-mcp",
       "targets": {
-        "claude-code": {
-          "prompt": "/pluxx:behavioral-proof explain how to prove an installed plugin actually works across the core four, not just that it builds or installs.",
-          "require": [
-            "pluxx test --install --trust --behavioral",
-            "pluxx verify-install"
-          ]
-        },
-        "cursor": {
-          "prompt": "/pluxx-behavioral-proof explain how to prove an installed plugin actually works across the core four, not just that it builds or installs.",
-          "require": [
-            "pluxx test --install --trust --behavioral",
-            "pluxx verify-install"
-          ]
-        },
-        "codex": {
-          "prompt": "Use Pluxx to explain how to prove an installed plugin actually works across the core four, not just that it builds or installs. Return the strongest command and the supporting check.",
-          "require": [
-            "pluxx test --install --trust --behavioral",
-            "pluxx verify-install"
-          ]
-        },
-        "opencode": {
-          "prompt": "/behavioral-proof explain how to prove an installed plugin actually works across the core four, not just that it builds or installs.",
-          "require": [
-            "pluxx test --install --trust --behavioral",
-            "pluxx verify-install"
-          ]
-        }
+        "claude-code": {"prompt": "/pluxx:create-plugin explain the safe path for creating a plugin from an MCP already configured in Codex.", "require": ["discover-mcp", "--from-installed-mcp"]},
+        "cursor": {"prompt": "/pluxx-create-plugin explain the safe path for creating a plugin from an MCP already configured in Codex.", "require": ["discover-mcp", "--from-installed-mcp"]},
+        "codex": {"prompt": "Use Pluxx to explain the safe path for creating a plugin from an MCP already configured in Codex.", "require": ["discover-mcp", "--from-installed-mcp"]},
+        "opencode": {"prompt": "/create-plugin explain the safe path for creating a plugin from an MCP already configured in Codex.", "require": ["discover-mcp", "--from-installed-mcp"]}
       }
     },
     {
-      "name": "translate-hosts",
+      "name": "refine-product-shape",
       "targets": {
-        "claude-code": {
-          "prompt": "/pluxx:translate-hosts explain how Pluxx should preserve, translate, degrade, or drop commands, agents, hooks, and permissions across the core four.",
-          "require": [
-            "preserve",
-            "translate",
-            "degrade"
-          ]
-        },
-        "cursor": {
-          "prompt": "/pluxx-translate-hosts explain how Pluxx should preserve, translate, degrade, or drop commands, agents, hooks, and permissions across the core four.",
-          "require": [
-            "preserve",
-            "translate",
-            "degrade"
-          ]
-        },
-        "codex": {
-          "prompt": "Use Pluxx to explain how a plugin source maps commands, agents, hooks, and permissions across Claude Code, Cursor, Codex, and OpenCode. Include preserve, translate, degrade, and drop language.",
-          "require": [
-            "preserve",
-            "translate",
-            "degrade"
-          ]
-        },
-        "opencode": {
-          "prompt": "/translate-hosts explain how Pluxx should preserve, translate, degrade, or drop commands, agents, hooks, and permissions across the core four.",
-          "require": [
-            "preserve",
-            "translate",
-            "degrade"
-          ]
-        }
+        "claude-code": {"prompt": "/pluxx:refine-plugin explain how to improve a valid but tool-shaped scaffold using product docs.", "require": ["agent prepare", "agent run taxonomy"]},
+        "cursor": {"prompt": "/pluxx-refine-plugin explain how to improve a valid but tool-shaped scaffold using product docs.", "require": ["agent prepare", "agent run taxonomy"]},
+        "codex": {"prompt": "Use Pluxx to explain how to improve a valid but tool-shaped scaffold using product docs.", "require": ["agent prepare", "agent run taxonomy"]},
+        "opencode": {"prompt": "/refine-plugin explain how to improve a valid but tool-shaped scaffold using product docs.", "require": ["agent prepare", "agent run taxonomy"]}
+      }
+    },
+    {
+      "name": "maintain-safe-sync",
+      "targets": {
+        "claude-code": {"prompt": "/pluxx:maintain-plugin explain how to refresh an MCP-derived project without losing custom notes.", "require": ["sync --dry-run --json", "preserve"]},
+        "cursor": {"prompt": "/pluxx-maintain-plugin explain how to refresh an MCP-derived project without losing custom notes.", "require": ["sync --dry-run --json", "preserve"]},
+        "codex": {"prompt": "Use Pluxx to explain how to refresh an MCP-derived project without losing custom notes.", "require": ["sync --dry-run --json", "preserve"]},
+        "opencode": {"prompt": "/maintain-plugin explain how to refresh an MCP-derived project without losing custom notes.", "require": ["sync --dry-run --json", "preserve"]}
+      }
+    },
+    {
+      "name": "verify-installed-behavior",
+      "targets": {
+        "claude-code": {"prompt": "/pluxx:verify-plugin explain how to prove installed behavior rather than only a successful build.", "require": ["verify-install", "--behavioral"]},
+        "cursor": {"prompt": "/pluxx-verify-plugin explain how to prove installed behavior rather than only a successful build.", "require": ["verify-install", "--behavioral"]},
+        "codex": {"prompt": "Use Pluxx to explain how to prove installed behavior rather than only a successful build.", "require": ["verify-install", "--behavioral"]},
+        "opencode": {"prompt": "/verify-plugin explain how to prove installed behavior rather than only a successful build.", "require": ["verify-install", "--behavioral"]}
+      }
+    },
+    {
+      "name": "translate-core-four",
+      "targets": {
+        "claude-code": {"prompt": "/pluxx:translate-hosts explain how commands and agents map across the core four.", "require": ["preserve", "translate", "degrade"]},
+        "cursor": {"prompt": "/pluxx-translate-hosts explain how commands and agents map across the core four.", "require": ["preserve", "translate", "degrade"]},
+        "codex": {"prompt": "Use Pluxx to explain how commands and agents map across the core four.", "require": ["preserve", "translate", "degrade"]},
+        "opencode": {"prompt": "/translate-hosts explain how commands and agents map across the core four.", "require": ["preserve", "translate", "degrade"]}
+      }
+    },
+    {
+      "name": "publish-preview-first",
+      "targets": {
+        "claude-code": {"prompt": "/pluxx:publish-plugin prepare a release plan without uploading anything.", "require": ["publish --dry-run", "approval"]},
+        "cursor": {"prompt": "/pluxx-publish-plugin prepare a release plan without uploading anything.", "require": ["publish --dry-run", "approval"]},
+        "codex": {"prompt": "Use Pluxx to prepare a release plan without uploading anything.", "require": ["publish --dry-run", "approval"]},
+        "opencode": {"prompt": "/publish-plugin prepare a release plan without uploading anything.", "require": ["publish --dry-run", "approval"]}
       }
     }
   ]

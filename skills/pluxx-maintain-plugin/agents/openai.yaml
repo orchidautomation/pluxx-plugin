@@ -1,0 +1,4 @@
+interface:
+  display_name: "Maintain Plugin"
+  short_description: "Sync an MCP-derived Pluxx project safely"
+  default_prompt: "Use $pluxx-maintain-plugin to preview and apply a safe sync, preserve custom sections, and explain follow-up work."

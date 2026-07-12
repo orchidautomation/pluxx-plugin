@@ -1,0 +1,20 @@
+{
+  "skill_name": "pluxx-publish-plugin",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Prepare a dry-run GitHub release plan for version 0.2.0. Include installers and checksums, but do not upload anything.",
+      "expected_output": "Verified source state, an exact non-uploading publish command, planned release assets, and explicit confirmation that no external mutation occurred."
+    },
+    {
+      "id": 2,
+      "prompt": "We only ran build checks. Package public screenshots and proof notes without saying the plugin was behaviorally tested.",
+      "expected_output": "Release-facing assets whose claims are limited to build evidence and which clearly identify missing install or behavior proof."
+    },
+    {
+      "id": 3,
+      "prompt": "Publish version 1.0.0 to npm under next and create the matching GitHub release after showing me the plan.",
+      "expected_output": "A combined dry-run with version and npm tag, a request for explicit approval, then upload only if that approval is supplied."
+    }
+  ]
+}

@@ -1,59 +1,35 @@
 ---
 name: pluxx-publish-plugin
-description: Package the current plugin for release distribution.
+description: Use this skill when a user wants to package, preview, or publish a Pluxx release, including GitHub Releases, npm, installers, checksums, screenshots, proof notes, or install links. Require verification and explicit approval before upload.
 ---
 
-# Publish Plugin
+# Publish A Pluxx Plugin
 
-Use this skill when the user wants to package and distribute the current plugin instead of stopping at local builds.
-
-## Inputs To Clarify
-
-- whether the user wants a local dry run, a GitHub release, or the full publish path
-- whether the plugin already passed structural and behavioral proof
-- whether screenshots, install links, or proof notes should ship alongside the release
+Turn verified source into honest, reproducible release artifacts.
 
 ## Workflow
 
-1. Confirm the project is healthy enough to publish:
-   - `pluxx doctor`
-   - `pluxx lint`
-   - `pluxx test`
-2. Start with `release-operator` when the host supports specialist agents.
-3. Treat proof packaging as part of this workflow when the user needs outreach, docs, screenshots, or shareable install paths in addition to the release artifacts.
-   - use `pluxx-proof-pack` when the release needs public install and proof polish before publishing.
-4. Run:
-   - `pluxx publish`
-   - include release flags when the user asks for a specific release path
-5. Summarize the release outputs:
-   - host bundles
-   - installer scripts
-   - checksums
-   - release metadata
+1. Confirm the requested path: dry-run, GitHub Release, npm, or both.
+2. Read [references/release-checklist.md](references/release-checklist.md) before any real publish or when public proof claims are part of the release.
+3. Use `release-operator` for the release path or `proof-publisher` for public proof assets when the host supports specialists.
+4. Verify the project with `pluxx doctor`, `pluxx lint`, and `pluxx test`.
+5. Confirm the working tree, version, tag, repository, generated targets, and strongest completed proof layer.
+6. Preview first:
+   - `pluxx publish --dry-run`
+   - add `--github-release`, `--npm`, `--version <x.y.z>`, or `--tag <name>` to match the intended path
+   - use `--allow-dirty` only for an intentional local or CI plan, never to hide unknown changes
+7. Package proof assets only from completed evidence: install links, screenshots, behavior notes, reload instructions, and host caveats.
+8. Upload only after explicit approval. Run the exact reviewed publish command.
+9. Report bundles, installers, checksums, manifest, tags, URLs, and any remaining distribution caveats.
 
-## Decision Points
+## Release Truth
 
-- If the plugin is only structurally healthy, route first to behavioral proof.
-- If the user wants shareable curl links before the first release exists, point them at the raw `main` installers under `release/`.
-- If the release is technically fine but the public surface is weak, stay in this workflow and package the proof surface before outreach.
-- If the user is testing the release machinery itself, make that explicit rather than overstating external readiness.
-
-## Rules
-
-- Do not skip validation when the scaffold changed materially.
-- Be honest when the project is still only locally credible and not yet release-ready.
-- If publishing is blocked, return the blockers before any release summary.
-
-## Failure Modes To Call Out
-
-- release path blocked by validation failures
-- artifacts generated but no credible install/proof surface
-- source pushed but no tagged GitHub release yet, so `releases/latest/download/...` still points at nothing
-- stale versioning or tag mismatch
-- plugin ready locally but not yet ready for public distribution
+- Raw `main` installer links work after the installer files are pushed.
+- `releases/latest/download/...` works only after a tagged GitHub release exists.
+- A release must not claim behavioral proof when only source or build checks ran.
+- Expected host translations belong in release notes when they affect user expectations.
+- Publishing is an external side effect; never infer approval from a request to review or prepare artifacts.
 
 ## Output
 
-- Tell the user whether publish succeeded.
-- List the important release artifacts.
-- Call out remaining blockers or manual follow-up.
+Return the release mode, version, verification evidence, exact publish action, generated artifacts, public install paths, and blockers or follow-up.

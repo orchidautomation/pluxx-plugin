@@ -1,0 +1,20 @@
+{
+  "skill_name": "pluxx-maintain-plugin",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The MCP behind this existing Pluxx project added three tools. Preview a safe sync, preserve our custom notes, then explain whether the taxonomy needs another pass.",
+      "expected_output": "A JSON dry-run review before sync, explicit preserved and changed content, deterministic checks, and a refinement recommendation based on semantic impact."
+    },
+    {
+      "id": 2,
+      "prompt": "Our local stdio MCP moved from ./build/index.js to ./dist/server.js. Update the existing Pluxx project without assuming the installed bundles still work.",
+      "expected_output": "A source override or sync plan that checks runtime payload paths, rebuilds from source, and requires installed-state verification."
+    },
+    {
+      "id": 3,
+      "prompt": "Sync says a generated skill was removed, but that file still contains our operator notes. What should happen?",
+      "expected_output": "A preservation-first explanation that identifies stranded custom content and avoids silent deletion."
+    }
+  ]
+}

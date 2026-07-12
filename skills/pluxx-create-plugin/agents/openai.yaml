@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Plugin"
+  short_description: "Create a Pluxx project from an MCP or existing plugin"
+  default_prompt: "Use $pluxx-create-plugin to create one maintained source from this MCP or host plugin and validate the first pass."

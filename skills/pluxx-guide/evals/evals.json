@@ -1,0 +1,20 @@
+{
+  "skill_name": "pluxx-guide",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I installed Pluxx a while ago and I am not sure whether it is current. Check it and tell me the safest next command without changing this repo.",
+      "expected_output": "A read-only local and npm version comparison, followed by either no action or the exact upgrade command with its effect explained."
+    },
+    {
+      "id": 2,
+      "prompt": "The pluxx command is not on my command path, but Node and npx are available. Tell me the safe temporary and persistent setup choices.",
+      "expected_output": "A no-install npx fallback, a global installation option, the version checks for each, and no plugin-project diagnosis."
+    },
+    {
+      "id": 3,
+      "prompt": "I have an MCP URL and do not know whether init or autopilot is the better Pluxx path.",
+      "expected_output": "A concise decision between the inspectable manual path and the one-shot path, including the first safe command for each."
+    }
+  ]
+}

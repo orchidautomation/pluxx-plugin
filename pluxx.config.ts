@@ -2,8 +2,8 @@ import { definePlugin } from 'pluxx'
 
 export default definePlugin({
   name: 'pluxx',
-  version: '0.1.3',
-  description: 'Build and maintain one plugin workflow source, then ship native bundles to Claude, Cursor, Codex, and OpenCode.',
+  version: '0.2.0',
+  description: 'Guide Pluxx CLI users through creating, refining, maintaining, verifying, translating, and publishing native plugins.',
   author: {
     name: 'Orchid Automation',
     url: 'https://github.com/orchidautomation',
@@ -15,7 +15,7 @@ export default definePlugin({
   brand: {
     displayName: 'Pluxx',
     shortDescription: 'One plugin workflow source. Native bundles for Claude, Cursor, Codex, and OpenCode.',
-    longDescription: 'Use Pluxx to import MCPs or migrate existing plugins into one maintained source project, prepare richer context, refine taxonomy and instructions, review host translation quality, run behavioral proof, then build, verify, install, and publish native plugin bundles for Claude, Cursor, Codex, and OpenCode.',
+    longDescription: 'Use Pluxx through seven job-shaped workflows: choose and troubleshoot the CLI, create one maintained source from an MCP or existing plugin, refine product context and taxonomy, sync upstream changes, prove source and installed behavior, audit host translation, and publish native bundles for Claude Code, Cursor, Codex, and OpenCode.',
     category: 'Productivity',
     color: '#0F172A',
     icon: './assets/icon/pluxx-icon.svg',
@@ -24,9 +24,9 @@ export default definePlugin({
       './assets/screenshots/build-install-workflow.svg',
     ],
     defaultPrompts: [
-      'Use Pluxx to import or migrate this plugin into one maintained source project and validate the first pass.',
-      'Use Pluxx to translate this scaffold across the core four, then call out preserve, translate, degrade, and drop decisions.',
-      'Use Pluxx to run behavioral proof, package install links and screenshots, then publish the release assets.',
+      'Use Pluxx to choose the safest workflow for this plugin project and explain the next command before changing anything.',
+      'Use Pluxx to create or refine one maintained source project, then validate it across the core four.',
+      'Use Pluxx to prove the installed plugin, audit host translation, and prepare a release plan without publishing until I approve.',
     ],
     websiteURL: 'https://pluxx.dev',
     privacyPolicyURL: 'https://docs.pluxx.dev/reference/privacy-policy',

@@ -1,0 +1,18 @@
+[
+  {"query":"turn the MCP already configured in Cursor into one Pluxx project","should_trigger":true},
+  {"query":"use pluxx autopilot on https://example.com/mcp and target Codex","should_trigger":true},
+  {"query":"migrate this old Claude Code plugin into a cross-host source repo","should_trigger":true},
+  {"query":"start a blank Pluxx plugin called invoice-ops","should_trigger":true},
+  {"query":"hey, the linear MCP already works in opencode—can you make the core-four plugin without making me re-enter its setup?","should_trigger":true},
+  {"query":"scaffold ~/dev/acme-mcp using the real command `node ./build/server.js`, workflow grouping, and Claude plus Codex targets","should_trigger":true},
+  {"query":"we have a Cursor-only plugin under ./legacy/search-pack; canonicalize it with Pluxx and show what won't translate","should_trigger":true},
+  {"query":"fastest path from this SSE endpoint to a locally installed Codex plugin, with a dry-run if anything is unclear","should_trigger":true},
+  {"query":"the MCP behind this existing Pluxx project changed; refresh it safely","should_trigger":false},
+  {"query":"make this valid scaffold's taxonomy less tool-shaped","should_trigger":false},
+  {"query":"verify whether the built OpenCode plugin is installed correctly","should_trigger":false},
+  {"query":"write a generic TypeScript plugin without using Pluxx","should_trigger":false},
+  {"query":"compare how hooks and permissions compile in Cursor and Codex","should_trigger":false},
+  {"query":"prepare checksums and a GitHub Release plan for version 0.7.0","should_trigger":false},
+  {"query":"the raw MCP import already exists; rewrite only INSTRUCTIONS.md from our docs","should_trigger":false},
+  {"query":"Pluxx is not installed globally—tell me whether to use npx or upgrade","should_trigger":false}
+]

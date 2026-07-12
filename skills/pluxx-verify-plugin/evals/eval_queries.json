@@ -1,0 +1,18 @@
+[
+  {"query":"run the full Pluxx validation and build checks on this scaffold","should_trigger":true},
+  {"query":"the plugin built but Codex cannot see the installed bundle","should_trigger":true},
+  {"query":"prove a real installed workflow across Claude, Cursor, Codex, and OpenCode","should_trigger":true},
+  {"query":"use Pluxx MCP record and replay to debug this flaky smoke case","should_trigger":true},
+  {"query":"lint passes, but `pluxx doctor --consumer ./dist/cursor` reports missing runtime files—find the failing proof layer","should_trigger":true},
+  {"query":"test only claude-code and codex, install Codex after reviewing hooks, then verify the host-visible state","should_trigger":true},
+  {"query":"we need evidence, not vibes: separate config, source, build, install, and behavior results for this plugin","should_trigger":true},
+  {"query":"the installed MCP workflow times out every third run; capture a tape and determine whether the protocol or skill instructions fail","should_trigger":true},
+  {"query":"create a new plugin from this installed MCP","should_trigger":false},
+  {"query":"improve this scaffold's taxonomy and shared instructions","should_trigger":false},
+  {"query":"sync the project after an upstream MCP schema change","should_trigger":false},
+  {"query":"publish version 2.0.0 to npm and GitHub Releases","should_trigger":false},
+  {"query":"Pluxx isn't installed yet; compare global install and npx","should_trigger":false},
+  {"query":"migrate this OpenCode plugin into a canonical source project","should_trigger":false},
+  {"query":"explain which command and agent surfaces degrade in Codex","should_trigger":false},
+  {"query":"package screenshots and public install links from already completed proof","should_trigger":false}
+]

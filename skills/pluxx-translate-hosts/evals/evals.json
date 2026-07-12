@@ -1,0 +1,20 @@
+{
+  "skill_name": "pluxx-translate-hosts",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Audit this plugin's commands, agents, hooks, and permissions across the core four. I want preserve, translate, degrade, or drop—not a generic supported/unsupported answer.",
+      "expected_output": "A host-by-bucket matrix grounded in current lint/build output, with honest classifications and a source-shape recommendation."
+    },
+    {
+      "id": 2,
+      "prompt": "Why do my Claude slash commands not appear as Pluxx plugin commands in Codex, and what should the source project do instead?",
+      "expected_output": "An explanation of Codex command degradation into skills and routing metadata, plus a source-first portability recommendation."
+    },
+    {
+      "id": 3,
+      "prompt": "Compare only the agent and permission surfaces for Cursor and Codex; do not rebuild unrelated targets.",
+      "expected_output": "A scoped two-host review of translated agent registration and permission enforcement with no broad parity claim."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {"query":"this Pluxx scaffold is valid but the skills are just wrappers around tool names","should_trigger":true},
+  {"query":"prepare the product docs and rewrite this scaffold's shared instructions","should_trigger":true},
+  {"query":"review the taxonomy and examples before we prove the plugin","should_trigger":true},
+  {"query":"make these overlapping Pluxx skills into a smaller product-shaped workflow surface","should_trigger":true},
+  {"query":"lint is green, but this thing still reads like an API dump—shape it around what customers actually do","should_trigger":true},
+  {"query":"use https://docs.acme.com and ./notes/product.md to improve setup guidance while preserving our custom block","should_trigger":true},
+  {"query":"run a findings-first pre-ship review of the scaffold; don't rewrite copy just to look busy","should_trigger":true},
+  {"query":"the MCP generated 31 tiny skills and ambiguous descriptions. consolidate the taxonomy and add better trigger boundaries","should_trigger":true},
+  {"query":"create a new Pluxx project from this MCP URL","should_trigger":false},
+  {"query":"the MCP schema changed; sync this existing scaffold","should_trigger":false},
+  {"query":"install and behaviorally test the current build in Codex","should_trigger":false},
+  {"query":"publish these release installers to GitHub","should_trigger":false},
+  {"query":"which Pluxx command should a beginner run first?","should_trigger":false},
+  {"query":"why do slash commands degrade in the Codex target?","should_trigger":false},
+  {"query":"doctor reports an unreadable installed bundle under ~/.codex/plugins","should_trigger":false},
+  {"query":"the source is already polished; preview a 1.0.0 npm release","should_trigger":false}
+]

@@ -1,256 +1,207 @@
 # Pluxx Plugin
 
-Official first-party Pluxx plugin source for Claude Code, Cursor, Codex, and OpenCode.
+Use the Pluxx CLI from Claude Code, Cursor, Codex, or OpenCode without memorizing every authoring, verification, and release command.
 
-See [docs/ultimate-pluxx-plugin.md](./docs/ultimate-pluxx-plugin.md) for the
-target shape of the first-party plugin and the gap between the current helper
-pack and the higher-bar multi-agent control plane we want to build.
+Pluxx keeps one maintained plugin source project and compiles native bundles for the core four. This repository is itself a Pluxx source project: edit the root source and rebuild `dist/` with Pluxx.
 
-The goal is not just to expose raw CLI commands inside another host. The
-first-party Pluxx plugin should set the bar for:
+## Install The Plugin
 
-- import and migration specialists
-- workflow-first orchestration instead of command-per-step sprawl
-- host translation honesty
-- installed behavioral proof
-- runtime bootstrap and upgrade
-- proof-packaging and release operators
-- current Pluxx CLI 0.1.9 practices: installed MCP discovery, local stdio runtime bundling, hook trust, command arguments, specialist subagents, and behavioral proof
-
-## Get The Plugin
-
-There are now two valid install paths:
-
-- **Current main**: always works after source is pushed to GitHub, even before the first tagged release
-- **Latest release**: stable prebuilt bundles from GitHub Releases
-
-If you just pushed source and want curl links that work immediately, use the
-**current main** installers below. If you want stable prebuilt bundles, cut a
-tagged release first and then use the **latest release** links.
-
-### Install From Current Main
-
-These scripts pull the repository source from GitHub, build the requested host
-bundle with `pluxx` or `npx @orchid-labs/pluxx@latest`, and install it locally.
-
-- [Current main Claude installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-claude-code.sh)
-- [Current main Cursor installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-cursor.sh)
-- [Current main Codex installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-codex.sh)
-- [Current main OpenCode installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-opencode.sh)
-- [Current main core-four installer](https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-all.sh)
-
-### Install From Latest Release
-
-If you are trying to install the plugin and do **not** care about the source repo, use the release assets directly:
-
-- [Latest release page](https://github.com/orchidautomation/pluxx-plugin/releases/latest)
-- [Download Claude Code bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-claude-code-latest.tar.gz)
-- [Download Cursor bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-cursor-latest.tar.gz)
-- [Download Codex bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-codex-latest.tar.gz)
-- [Download OpenCode bundle](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/pluxx-opencode-latest.tar.gz)
-- [Download Claude installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-claude-code.sh)
-- [Download Cursor installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-cursor.sh)
-- [Download Codex installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-codex.sh)
-- [Download OpenCode installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-opencode.sh)
-- [Download core-four installer script](https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-all.sh)
-
-This repository's file list is the **source project**. The installable bundles live under **Releases**, not in the root file tree.
-
-### Fastest Claude Code Install From Current Main
-
-If you want the newest pushed source and do not want to wait for a GitHub release:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-claude-code.sh | bash
-```
-
-### Fastest Claude Code Install From Latest Release
-
-If you want the plugin in Claude Code user scope right now:
+### Claude Code
 
 ```bash
 curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-claude-code.sh | bash
 ```
 
-That script:
+Run `/reload-plugins` afterward.
 
-1. downloads the latest Claude bundle
-2. creates a local Claude marketplace
-3. installs the `pluxx` plugin into your Claude Code user scope
-
-If Claude is already open, run `/reload-plugins` after install.
-
-### Fastest Cursor Install From Current Main
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-cursor.sh | bash
-```
-
-### Fastest Cursor Install From Latest Release
+### Cursor
 
 ```bash
 curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-cursor.sh | bash
 ```
 
-### Fastest Codex Install From Current Main
+Reload the window or restart Cursor.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-codex.sh | bash
-```
-
-### Fastest Codex Install From Latest Release
+### Codex
 
 ```bash
 curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-codex.sh | bash
 ```
 
-### Fastest OpenCode Install From Current Main
+Use Plugins → Refresh when available, otherwise restart Codex.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-opencode.sh | bash
-```
-
-### Fastest OpenCode Install From Latest Release
+### OpenCode
 
 ```bash
 curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-opencode.sh | bash
 ```
 
-### Install Across The Core Four From Current Main
+Reload or restart OpenCode.
+
+## Install The CLI
+
+The plugin operates the CLI; the machine still needs Pluxx.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/orchidautomation/pluxx-plugin/main/release/install-all.sh | bash
+npm install -g @orchid-labs/pluxx
+pluxx --version
 ```
 
-### Install Across The Core Four From Latest Release
+Or use the no-install fallback:
 
 ```bash
-curl -fsSL https://github.com/orchidautomation/pluxx-plugin/releases/latest/download/install-all.sh | bash
+npx @orchid-labs/pluxx --version
 ```
 
-## Source vs Download
+Upgrade a global install with `pluxx upgrade`. The published CLI supports Node 18 and newer.
 
-- Want to **use/install** the plugin: go to [Releases](https://github.com/orchidautomation/pluxx-plugin/releases/latest)
-- Want to **edit/maintain** the plugin: use this repository source directly
+Plain `pluxx init <name>` is interactive. Run it in a real terminal; for headless creation, use the explicit MCP import paths with `--yes`.
 
-This repository is the canonical Pluxx source project for the Pluxx plugin itself. It contains the maintained cross-host source files:
+## Seven Core Workflows
 
-- `pluxx.config.ts`
-- `INSTRUCTIONS.md`
-- `skills/`
-- `commands/`
-- `assets/`
+| Workflow | Use it for |
+| --- | --- |
+| `pluxx-guide` | CLI setup, upgrades, command selection, and broad troubleshooting |
+| `pluxx-create-plugin` | MCP import, installed-MCP discovery, blank initialization, migration, and autopilot |
+| `pluxx-refine-plugin` | Context preparation, taxonomy, instructions, examples, and scaffold review |
+| `pluxx-maintain-plugin` | Safe MCP sync and drift handling while preserving custom work |
+| `pluxx-verify-plugin` | Validation, build, install, consumer diagnosis, installed-state, and behavioral proof |
+| `pluxx-translate-hosts` | Preserve/translate/degrade/drop truth across the core four |
+| `pluxx-publish-plugin` | Dry-run release plans, installers, checksums, proof assets, GitHub Releases, and npm |
 
-Generated host bundles are build artifacts and are not checked into this repository.
+In Claude Code, Cursor, and OpenCode, parameterized workflows also compile into explicit commands. In Codex, use `@pluxx` and the matching skill because plugin-packaged slash-command parity is not currently documented.
 
-## Where The Built Bundles Live
+## Common Requests
 
-This repository is source-first, so `dist/` is not committed.
+Create from an installed MCP:
 
-Built platform bundles are published as release assets:
+> Use Pluxx to discover the MCP already configured in Codex, create one core-four source project, and validate the first pass.
 
-- `pluxx-claude-code-v<version>.tar.gz`
-- `pluxx-cursor-v<version>.tar.gz`
-- `pluxx-codex-v<version>.tar.gz`
-- `pluxx-opencode-v<version>.tar.gz`
-- `pluxx-claude-code-latest.tar.gz`
-- `pluxx-cursor-latest.tar.gz`
-- `pluxx-codex-latest.tar.gz`
-- `pluxx-opencode-latest.tar.gz`
-- `install-claude-code.sh`
-- `install-cursor.sh`
-- `install-codex.sh`
-- `install-opencode.sh`
-- `install-all.sh`
-- `release-manifest.json`
-- `SHA256SUMS.txt`
+Create from a remote MCP:
 
-Download them from the repository's Releases page after each tagged release.
+> Use Pluxx to scaffold https://example.com/mcp. Show me the deterministic result before running semantic refinement.
 
-## What This Plugin Does
+Refine a generic scaffold:
 
-The public surface is intentionally smaller than the raw CLI.
+> Use Pluxx to prepare the product docs, collapse tool-shaped skills into user workflows, rewrite the shared instructions, and re-test the project.
 
-Instead of presenting every lifecycle step as its own first-class workflow, the
-plugin now centers on a small set of higher-level operator journeys:
+Maintain after an MCP change:
 
-- discover MCPs that are already installed in Claude Code, Cursor, Codex, or OpenCode
-- import an MCP into a Pluxx project
-- migrate an existing host-native plugin into Pluxx
-- bootstrap or upgrade the underlying Pluxx runtime
-- refine a scaffold until it reads and translates like a real product
-- prove the scaffold through validate, build, install, verify, and behavioral checks
-- review preserve/translate/degrade/drop behavior across the core four
-- package proof into install links, screenshots, and release-facing assets
-- sync an MCP-derived scaffold later after the MCP changes
-- run the one-shot autopilot path
-- publish a plugin release with install links and proof assets
+> Preview a Pluxx sync, preserve our custom sections, apply it if safe, and tell me whether taxonomy needs another pass.
 
-If a user already has an MCP configured in a host, the import journey should
-start with `pluxx discover-mcp` and then use
-`pluxx init --from-installed-mcp <host:name> --yes`. That avoids asking the
-user to reconstruct stdio commands, remote URLs, or env-var wiring from memory.
+Prove installed behavior:
 
-Under the hood, the plugin still uses specialist agents for:
+> Use Pluxx to validate, build, install, verify, and behaviorally test this plugin in Codex. Report each proof layer separately.
 
-- import architecture
-- migration
-- taxonomy shaping
-- instruction editing
-- host translation review
-- install verification
-- behavioral testing
-- proof publishing
-- release packaging
+Audit host translation:
 
-The intended companion runtime is Pluxx CLI `>=0.1.9`. Older CLIs may miss
-installed MCP discovery, current local stdio bundling diagnostics, behavioral
-proof behavior, or the latest Claude hook install fixes.
+> Compare commands, agents, hooks, and permissions across the core four using preserve, translate, degrade, and drop.
 
-## Build Locally
+Prepare a release without publishing:
 
-Build this plugin with a local Pluxx checkout:
+> Dry-run a GitHub release for version 0.2.0, including installers and checksums, but do not upload anything.
+
+## CLI Decision Tree
+
+```text
+raw MCP or stdio command
+  -> pluxx init --from-mcp <source> --yes
+
+MCP already configured in a host
+  -> pluxx discover-mcp
+  -> pluxx init --from-installed-mcp <host:name> --yes
+
+existing host-native plugin
+  -> pluxx migrate <path>
+
+fast one-shot path
+  -> pluxx autopilot --from-mcp <source> --runner codex --mode standard --yes
+
+existing MCP-derived project changed
+  -> pluxx sync --dry-run --json
+  -> pluxx sync
+```
+
+Manual verification path:
 
 ```bash
-PLUXX_REPO_DIR=../pluxx ./scripts/build-with-pluxx-checkout.sh
+pluxx validate
+pluxx doctor
+pluxx lint
+pluxx eval
+pluxx test --target claude-code cursor codex opencode
 ```
 
-Or invoke the CLI directly:
+Installed proof adds:
 
 ```bash
-bun --cwd ../pluxx run build
-node ../pluxx/bin/pluxx.js build
+pluxx test --install --trust --target codex
+pluxx verify-install --target codex
 ```
 
-Or target a subset of hosts:
+## Source Layout
+
+```text
+pluxx.config.ts       canonical plugin metadata and targets
+INSTRUCTIONS.md       shared host guidance
+skills/               Agent Skills source, references, and evals
+commands/             explicit parameterized entrypoints
+agents/               specialist agent definitions
+scripts/              runtime and maintainer helpers
+assets/               icon and screenshots
+.pluxx/               Pluxx behavioral configuration
+dist/                 generated host-native bundles
+release/              generated release installers and archives
+```
+
+Agent Skills follow the open specification: every folder has `SKILL.md`, optional resources live beside it, descriptions carry discovery intent, and eval fixtures live under `evals/`.
+
+## Develop This Plugin
+
+Use a current Pluxx CLI, then run:
 
 ```bash
-bun --cwd ../pluxx run build
-node ../pluxx/bin/pluxx.js build --target claude-code cursor codex opencode
+pluxx validate
+pluxx lint
+pluxx test
+pluxx build
 ```
 
-## CI And Release Automation
-
-- `.github/workflows/ci.yml` validates the source project, uploads `dist/`, and dry-runs the core `pluxx publish --github-release` path
-- `.github/workflows/release.yml` builds the core-four bundles and calls core `pluxx publish --github-release` on tags
-- `release/install-*.sh` is the source-first install path and works straight from `main`
-- `releases/latest/download/install-*.sh` only updates when a tagged GitHub release exists
-
-## Local Proof
-
-For the strongest deterministic local proof:
+Validate each source skill with:
 
 ```bash
-bun --cwd ../pluxx run build
-node ../pluxx/bin/pluxx.js test --install --trust --behavioral --target claude-code cursor codex opencode
+npx --yes skills-ref validate skills/<skill-name>
 ```
 
-That behavioral lane reads this repo's installed example queries from
-`.pluxx/behavioral-smoke.json`, so the plugin proves not just that bundles build
-and install, but that the installed workflows respond credibly in the hosts.
+Preview release packaging without uploading:
 
-## Notes
+```bash
+pluxx publish --github-release --version 0.2.0 --allow-dirty --dry-run
+```
 
-- This repository holds the official plugin source, not the Pluxx compiler/engine.
-- The Pluxx CLI/package lives in the main project: [orchidautomation/pluxx](https://github.com/orchidautomation/pluxx)
-- A future `pluxx-plugins` repository can serve as a broader gallery or registry. This repository is intentionally first-party and singular.
+Do not hand-edit `dist/`; it is regenerated from source.
+
+## Migration From The 0.1 Workflow Surface
+
+| Previous workflow | Current workflow |
+| --- | --- |
+| `pluxx-bootstrap-runtime` | `pluxx-guide` |
+| `pluxx-import-mcp`, `pluxx-migrate-plugin`, `pluxx-autopilot` | `pluxx-create-plugin` |
+| `pluxx-refine-plugin` | `pluxx-refine-plugin` |
+| `pluxx-sync-mcp` | `pluxx-maintain-plugin` |
+| `pluxx-prove-plugin`, `pluxx-behavioral-proof` | `pluxx-verify-plugin` |
+| `pluxx-translate-hosts` | `pluxx-translate-hosts` |
+| `pluxx-proof-pack`, `pluxx-publish-plugin` | `pluxx-publish-plugin` |
+
+The CLI commands remain available. The change is the plugin’s public skill taxonomy: users select a coherent job instead of loading several adjacent micro-skills.
+
+## Links
+
+- [Pluxx source](https://github.com/orchidautomation/pluxx)
+- [Pluxx documentation](https://docs.pluxx.dev)
+- [Agent Skills specification](https://agentskills.io/specification)
+- [Agent Skills creation guidance](https://agentskills.io/skill-creation/best-practices)
+
+## License
+
+MIT
