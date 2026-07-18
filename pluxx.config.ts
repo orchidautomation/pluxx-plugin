@@ -2,7 +2,7 @@ import { definePlugin } from 'pluxx'
 
 export default definePlugin({
   name: 'pluxx',
-  version: '0.2.1',
+  version: '0.2.2',
   description: 'Guide Pluxx CLI users through creating, refining, maintaining, verifying, translating, and publishing native plugins.',
   author: {
     name: 'Orchid Automation',
