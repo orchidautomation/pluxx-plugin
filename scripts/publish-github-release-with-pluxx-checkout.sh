@@ -21,4 +21,4 @@ shift
   bun run build
 )
 
-node "$PLUXX_BIN" publish --github-release --allow-dirty --version "$VERSION" "$@"
+bun "$PLUXX_BIN" publish --github-release --allow-dirty --version "$VERSION" "$@"

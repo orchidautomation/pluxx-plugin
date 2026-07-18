@@ -13,10 +13,11 @@ PLUXX_BIN="$PLUXX_REPO_DIR/bin/pluxx.js"
   bun run build
 )
 
-node "$PLUXX_BIN" validate
-node "$PLUXX_BIN" doctor
-node "$PLUXX_BIN" lint
+bun "$PLUXX_BIN" validate
+bun "$PLUXX_BIN" doctor
+bun "$PLUXX_BIN" lint
 "$SCRIPT_DIR/validate-source-skills.sh"
-node "$PLUXX_BIN" test --target claude-code cursor codex opencode
-node "$PLUXX_BIN" build
-node "$SCRIPT_DIR/test-opencode-top-level-wrapper.mjs"
+bun "$PLUXX_BIN" test --target claude-code cursor codex opencode
+bun "$PLUXX_BIN" build
+node "$SCRIPT_DIR/test-prepare-pluxx-checkout.mjs"
+bun "$SCRIPT_DIR/test-opencode-top-level-wrapper.mjs"

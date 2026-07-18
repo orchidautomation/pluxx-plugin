@@ -6,6 +6,18 @@ source "$SCRIPT_DIR/pluxx-version.sh"
 
 PLUXX_REPO_DIR="${PLUXX_REPO_DIR:-./pluxx-cli}"
 PLUXX_REPOSITORY="https://github.com/orchidautomation/pluxx.git"
+PLUXX_CLONE_ATTEMPTS="${PLUXX_CLONE_ATTEMPTS:-2}"
+PLUXX_CLONE_LOW_SPEED_TIME="${PLUXX_CLONE_LOW_SPEED_TIME:-30}"
+
+if [[ ! "$PLUXX_CLONE_ATTEMPTS" =~ ^[1-9][0-9]*$ ]]; then
+  echo "PLUXX_CLONE_ATTEMPTS must be a positive integer." >&2
+  exit 1
+fi
+
+if [[ ! "$PLUXX_CLONE_LOW_SPEED_TIME" =~ ^[1-9][0-9]*$ ]]; then
+  echo "PLUXX_CLONE_LOW_SPEED_TIME must be a positive integer." >&2
+  exit 1
+fi
 
 if [[ ! -d "$PLUXX_REPO_DIR/.git" ]]; then
   if [[ -e "$PLUXX_REPO_DIR" ]]; then
@@ -13,7 +25,18 @@ if [[ ! -d "$PLUXX_REPO_DIR/.git" ]]; then
     exit 1
   fi
 
-  git clone --depth 1 --branch "$PLUXX_TAG" "$PLUXX_REPOSITORY" "$PLUXX_REPO_DIR"
+  clone_attempt=1
+  until git \
+    -c http.lowSpeedLimit=1 \
+    -c "http.lowSpeedTime=${PLUXX_CLONE_LOW_SPEED_TIME}" \
+    clone --depth 1 --branch "$PLUXX_TAG" "$PLUXX_REPOSITORY" "$PLUXX_REPO_DIR"; do
+    if (( clone_attempt >= PLUXX_CLONE_ATTEMPTS )); then
+      echo "Failed to clone pinned Pluxx after ${PLUXX_CLONE_ATTEMPTS} attempt(s)." >&2
+      exit 1
+    fi
+    clone_attempt=$((clone_attempt + 1))
+    echo "Retrying pinned Pluxx clone (${clone_attempt}/${PLUXX_CLONE_ATTEMPTS})..." >&2
+  done
 fi
 
 ACTUAL_COMMIT="$(git -C "$PLUXX_REPO_DIR" rev-parse HEAD)"

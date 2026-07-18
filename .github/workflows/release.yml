@@ -11,6 +11,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     env:
       PLUXX_REPO_DIR: ${{ github.workspace }}/pluxx-cli
       GH_TOKEN: ${{ github.token }}

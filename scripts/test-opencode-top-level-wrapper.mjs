@@ -8,12 +8,24 @@ import { dirname, join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 const installerPath = resolve(process.argv[2] ?? 'release/install-opencode.sh')
+const builtBundlePath = resolve(process.argv[3] ?? 'dist/opencode/index.ts')
 const installer = readFileSync(installerPath, 'utf8')
+const builtBundle = readFileSync(builtBundlePath, 'utf8')
 const currentWrapperMatch = installer.match(/const currentOpenCodeWrapperContent = \(\) => ("(?:\\.|[^"\\])*")\n\s+\.replaceAll/)
 const legacyGeneratorMatch = [...installer.matchAll(/node <<'NODE'\n([\s\S]*?)\nNODE/g)]
   .find((match) => match[1].includes('const content = [') && match[1].includes('pluginFactory'))
 
 assert(currentWrapperMatch || legacyGeneratorMatch, `Could not find the OpenCode wrapper generator in ${installerPath}`)
+assert.match(
+  builtBundle,
+  /const pluginRoot = dirname\(fileURLToPath\(import\.meta\.url\)\)/,
+  `Built OpenCode bundle must derive pluginRoot from its installed module path: ${builtBundlePath}`,
+)
+assert.match(
+  builtBundle,
+  /const workspaceRoot = directory/,
+  `Built OpenCode bundle must preserve the selected workspace from context.directory: ${builtBundlePath}`,
+)
 
 const proofRoot = mkdtempSync(join(tmpdir(), 'pluxx top-level wrapper proof-'))
 const launchDirectory = join(proofRoot, 'parent launch directory')
@@ -86,6 +98,7 @@ assert.equal(observed.pluginRoot, realpathSync(pluginRoot), 'Inner bundle must r
 
 process.stdout.write(`${JSON.stringify({
   installer: installerPath,
+  builtBundle: builtBundlePath,
   launchDirectory,
   workspaceRoot,
   pluginRoot,
