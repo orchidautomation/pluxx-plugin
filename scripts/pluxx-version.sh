@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+PLUXX_VERSION="0.1.36"
+PLUXX_TAG="v${PLUXX_VERSION}"
+PLUXX_COMMIT="3644f123776eb6c7ff22eff2d1c0743ec2c0ac47"
